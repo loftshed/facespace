@@ -5,3 +5,7 @@ export const COLORS = {
   notwhite: "#FFFCF2",
   safety: "#EB5E28",
 };
+
+export const SIZES = {
+  headerHeight: "60px",
+};

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { COLORS } from "../constants";
+import { COLORS, SIZES } from "../constants";
 
 const Header = () => {
   return (
@@ -8,7 +8,9 @@ const Header = () => {
       <Logo>
         <StyledLink to="/">Facespace</StyledLink>
       </Logo>
-      <SignIn>Sign In</SignIn>
+      <SignIn>
+        <StyledLink to="/signin/">Sign In</StyledLink>
+      </SignIn>
     </Wrapper>
   );
 };
@@ -21,14 +23,17 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0px 20px;
+  height: ${SIZES.headerHeight};
   width: 100%;
 `;
 
 const SignIn = styled.div`
   font-family: "Josefin Sans", sans-serif;
-  font-style: italic;
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background-color: ${COLORS.greyish};
   color: ${COLORS.notwhite};
 `;
 

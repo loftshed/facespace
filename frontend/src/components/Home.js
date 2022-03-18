@@ -14,8 +14,8 @@ export default Home;
 
 const Wrapper = styled.div`
   display: flex;
-  width: 100%;
-  height: 100vh;
-  padding: 25px 100px 0px 100px;
+  width: 80%;
+  height: 100%;
+  /* padding: 25px 100px 0px 100px; */
   background-color: ${COLORS.greyish};
 `;

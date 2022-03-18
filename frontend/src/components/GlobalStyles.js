@@ -5,18 +5,51 @@ export const breakpoints = { tablet: "600px" };
 
 export default createGlobalStyle`
     :root {
-      --primary-color: ${COLORS.safety};
-      --accent-bg-color: rgba(204, 85, 0, 0.1);
-      --page-horizontal-padding: 20px;
-      --header-height: 50px;
-      --max-content-width: 1200px;      
-      --user-img-width: 120px;
-      font-family: 'Josefin Sans', sans-serif;
+        --primary-color: ${COLORS.safety};
+        --accent-bg-color: rgba(204, 85, 0, 0.1);
+        --page-horizontal-padding: 20px;
+        --header-height: 50px;
+        --max-content-width: 1200px;      
+        --user-img-width: 120px;
+        font-family: 'Josefin Sans', sans-serif;
     }
+
+    ////////////////////////////////////////////
+    // ˅˅˅ from josh w. comeau css reset  ˅˅˅ //
+    ////////////////////////////////////////////
 
     html, body {
         height: 100%;
     }
+
+    body {
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        background-color: ${COLORS.greyish};
+    }
+
+    img, picture, video, canvas, svg {
+        display: block;
+        max-width: 100%;
+    }
+    input, button, textarea, select {
+        font: inherit;
+    }
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    
+    #root {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    ////////////////////////////////////////////
+    // ˄˄˄ from josh w. comeau css reset  ˄˄˄ //
+    ////////////////////////////////////////////
 
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -36,7 +69,6 @@ export default createGlobalStyle`
         border: 0;
         font-size: 100%;
         vertical-align: baseline;
-        box-sizing: border-box;
     }
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure,
@@ -58,15 +90,19 @@ export default createGlobalStyle`
         content: none;
     }
     h1, h2, h3 {
-      color: var(--primary-color);
+        color: var(--primary-color);
     }
     h1 {
-      font-size: 36px;
+        font-size: 36px;
     }
     h2 {
-      font-size: 28px;
+        font-size: 28px;
     }
     h3 {
-      font-size: 24px;
+        font-size: 24px;
+        /* text-decoration: underline;
+        text-underline-offset: 2px;
+        text-decoration-thickness: 2px;
+        text-decoration-color: ${COLORS.cement}; */
     }
 `;

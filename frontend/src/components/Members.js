@@ -1,57 +1,72 @@
 import { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { COLORS } from "../constants";
 
+import { COLORS } from "../constants";
 import { FaceContext } from "./FaceContext";
-import Profile from "./Profile";
 
 const Members = () => {
-  const { members, setMembers } = useContext(FaceContext);
+  const { members } = useContext(FaceContext);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch("/api/users/", {});
-        const data = await response.json();
-        setMembers(data.data);
-      } catch (err) {
-        console.log(err);
-      }
-    })();
-  }, [setMembers]);
+  //TODO modify this shiz to use CSS grid
 
   return (
     <Wrapper>
-      <Heading>All Facespace members</Heading>
-      <PicGrid>
-        {members.length > 1 &&
-          members.map((el) => {
-            console.log(el);
-            return <ProfilePic alt={el.name} key={el.id} src={el.avatarUrl} />;
-          })}
-      </PicGrid>
+      {members.length > 1 && (
+        <div>
+          <Heading>All Facespace members</Heading>
+          <PicGrid>
+            {members.map((el) => {
+              console.log(el);
+              return (
+                <StyledLink to={`/user/${el.id}`}>
+                  <ProfilePic alt={el.name} key={el.id} src={el.avatarUrl} />
+                </StyledLink>
+              );
+            })}
+          </PicGrid>
+        </div>
+      )}
     </Wrapper>
   );
 };
 
 export default Members;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  width: fit-content;
+  margin-top: 20px;
+`;
+
+const StyledLink = styled(Link)`
+  margin: 0px;
+  padding: 0px;
+`;
+
 const Heading = styled.h3`
-  font-family: "Josefin Sans", sans-serif;
   margin: 5px;
+  width: 100%;
+  border-bottom: 2px solid ${COLORS.cement};
+  margin-bottom: 10px;
+  /* text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: ${COLORS.cement}; */
 `;
 const PicGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  width: fit-content;
 `;
 const ProfilePic = styled.img`
   border: solid 2px ${COLORS.safety};
+  border-radius: 2px;
   width: 125px;
   transition: all 0.2s;
   &:hover {
-    transform: scale(98%);
-    border: solid 5px ${COLORS.safety};
+    transform: scale(99%);
+    border: solid 3px ${COLORS.safety};
   }
 `;
