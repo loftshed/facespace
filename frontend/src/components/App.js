@@ -8,10 +8,12 @@ const App = () => {
       <GlobalStyles />
       <div>
         <Switch>
+          <Route path="/signin">SignIn</Route>
           <Route exact path="/">
             Homepage
           </Route>
-          <Route path="/page-1">Page 1</Route>
+          <Route path="/user/:user">Profile</Route>
+          <Route path="/friends">Friends</Route>
         </Switch>
       </div>
     </BrowserRouter>
