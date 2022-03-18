@@ -1,6 +1,9 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
+import Home from "./Home";
+import SignIn from "./SignIn";
+import Profile from "./Profile";
 
 const App = () => {
   return (
@@ -8,12 +11,15 @@ const App = () => {
       <GlobalStyles />
       <div>
         <Switch>
-          <Route path="/signin">SignIn</Route>
           <Route exact path="/">
-            Homepage
+            <Home />
           </Route>
-          <Route path="/user/:user">Profile</Route>
-          <Route path="/friends">Friends</Route>
+          <Route path="/signin">
+            <SignIn />
+          </Route>
+          <Route path="/user/:user">
+            <Profile />
+          </Route>
         </Switch>
       </div>
     </BrowserRouter>
