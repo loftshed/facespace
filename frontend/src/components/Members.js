@@ -65,6 +65,7 @@ const ProfilePic = styled.img`
   border: solid 2px ${COLORS.safety};
   border-radius: 2px;
   width: 125px;
+  height: 125px;
   transition: all 0.2s;
   &:hover {
     transform: scale(99%);
