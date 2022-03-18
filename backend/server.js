@@ -36,6 +36,9 @@ app.get("/api/users/:id", passUsersAlong, getUserById);
 app.delete("/api/users/:id", passUsersAlong, deleteUser);
 app.patch("/api/friends", passUsersAlong, handleFriends);
 
+// validate login information
+// app.put("/api/signin/:id", passUsersAlong, updateUser);
+
 // this is our catch all endpoint.
 app.get("*", (req, res) => {
   res.status(404).json({
