@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import styled from "styled-components";
+import { COLORS } from "../constants";
 
 import { FaceContext } from "./FaceContext";
 import Profile from "./Profile";
@@ -26,7 +27,7 @@ const Members = () => {
         {members.length > 1 &&
           members.map((el) => {
             console.log(el);
-            return <ProfilePic key={el.id} src={el.avatarUrl} />;
+            return <ProfilePic alt={el.name} key={el.id} src={el.avatarUrl} />;
           })}
       </PicGrid>
     </Wrapper>
@@ -35,13 +36,22 @@ const Members = () => {
 
 export default Members;
 
-const Wrapper = styled.h2``;
-const Heading = styled.h3``;
+const Wrapper = styled.div``;
+const Heading = styled.h3`
+  font-family: "Josefin Sans", sans-serif;
+  margin: 5px;
+`;
 const PicGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 10px;
 `;
 const ProfilePic = styled.img`
+  border: solid 2px ${COLORS.safety};
   width: 125px;
+  transition: all 0.2s;
+  &:hover {
+    transform: scale(98%);
+    border: solid 5px ${COLORS.safety};
+  }
 `;

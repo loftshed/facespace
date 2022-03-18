@@ -9,9 +9,9 @@ export default createGlobalStyle`
       --accent-bg-color: rgba(204, 85, 0, 0.1);
       --page-horizontal-padding: 20px;
       --header-height: 50px;
-      --max-content-width: 1200px;
-      --heading-font-family: 'Gelasio', sans-serif;
+      --max-content-width: 1200px;      
       --user-img-width: 120px;
+      font-family: 'Josefin Sans', sans-serif;
     }
 
     html, body {
@@ -59,10 +59,14 @@ export default createGlobalStyle`
     }
     h1, h2, h3 {
       color: var(--primary-color);
-      font-family: var(--heading-font-family);
+    }
+    h1 {
+      font-size: 36px;
     }
     h2 {
       font-size: 28px;
     }
-    
+    h3 {
+      font-size: 24px;
+    }
 `;
