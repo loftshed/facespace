@@ -1,13 +1,11 @@
 import styled from "styled-components";
-
 import { COLORS } from "../constants";
-import Header from "./Header";
+import Members from "./Members";
 
 const Home = () => {
-  console.log("sup");
   return (
     <Wrapper>
-      <Header />
+      <Members />
     </Wrapper>
   );
 };
@@ -15,7 +13,9 @@ const Home = () => {
 export default Home;
 
 const Wrapper = styled.div`
+  display: flex;
   width: 100%;
   height: 100vh;
+  padding: 25px 100px 0px 100px;
   background-color: ${COLORS.greyish};
 `;

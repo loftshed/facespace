@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import styled from "styled-components";
+// import styled from "styled-components";
+import Header from "./Header";
 import GlobalStyles from "./GlobalStyles";
 import Home from "./Home";
 import SignIn from "./SignIn";
@@ -10,6 +11,7 @@ const App = () => {
     <BrowserRouter>
       <GlobalStyles />
       <div>
+        <Header />
         <Switch>
           <Route exact path="/">
             <Home />

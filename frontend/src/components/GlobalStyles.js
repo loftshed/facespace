@@ -1,16 +1,21 @@
 import { createGlobalStyle } from "styled-components";
+import { COLORS } from "../constants";
 
 export const breakpoints = { tablet: "600px" };
 
 export default createGlobalStyle`
     :root {
-      --primary-color: #cc5500;
+      --primary-color: ${COLORS.safety};
       --accent-bg-color: rgba(204, 85, 0, 0.1);
       --page-horizontal-padding: 20px;
       --header-height: 50px;
       --max-content-width: 1200px;
-      --heading-font-family: 'Teko', sans-serif;
+      --heading-font-family: 'Gelasio', sans-serif;
       --user-img-width: 120px;
+    }
+
+    html, body {
+        height: 100%;
     }
 
     html, body, div, span, applet, object, iframe,
@@ -59,4 +64,5 @@ export default createGlobalStyle`
     h2 {
       font-size: 28px;
     }
+    
 `;

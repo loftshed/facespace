@@ -3,6 +3,7 @@
   "version": "0.5.0",
   "description": "This is our first Node Workshop!",
   "main": "server.js",
+  
   "scripts": {
     "start": "node server.js",
     "dev:backend": "nodemon server.js"

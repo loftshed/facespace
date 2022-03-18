@@ -22,6 +22,7 @@ const Wrapper = styled.div`
 
 const Logo = styled.h1`
   color: ${COLORS.notwhite};
+  font-weight: 400;
   font-size: 42px;
   padding: 10px;
 `;
