@@ -1,26 +1,23 @@
-// import { useContext } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 
-// import { FaceContext } from "./FaceContext";
+import { FaceContext } from "./FaceContext";
 
 const Members = () => {
-  // const { members, setMembers } = useContext(FaceContext);
+  const { members, setMembers } = useContext(FaceContext);
 
+  // this does not work with proxy
   const handleGetMembers = async () => {
-    console.log("Fetching members from server . . .");
     try {
-      const receivedData = fetch("/api/users/", {
-        // method: "GET",
-        headers: {
-          accepts: "application/json",
-        },
-      });
-      console.log(await receivedData);
+      const response = await fetch("/api/users/", {});
+      const data = await response.json();
+      return data;
     } catch (err) {
       console.log(err);
     }
   };
-  handleGetMembers();
+
+  handleGetMembers().then((res) => console.log(res));
 
   return <Wrapper>All Facespace members</Wrapper>;
 };
