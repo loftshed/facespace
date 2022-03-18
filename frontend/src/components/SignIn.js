@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { COLORS, SIZES } from "../constants";
+import Button from "./Button";
 
 const SignIn = () => {
   return (
@@ -57,26 +58,6 @@ const Input = styled.input`
   display: flex;
   align-items: center;
   padding: 0px 10px;
-  &:focus {
-    outline: solid 2px ${COLORS.safety};
-  }
-`;
-const Button = styled.button`
-  color: ${COLORS.notwhite};
-  font-size: 24px;
-  line-height: 24px;
-  background-color: ${COLORS.greyish};
-  width: 125px;
-  padding: 7.5px;
-  border-radius: 50px;
-  border-style: none;
-  transition: all linear 0.05s;
-  &:hover {
-    box-shadow: inset 0px 0px 40px ${COLORS.cement};
-  }
-  &:active {
-    box-shadow: 0px 0px 0px 2px ${COLORS.cement};
-  }
   &:focus {
     outline: solid 2px ${COLORS.safety};
   }

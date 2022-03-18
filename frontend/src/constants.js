@@ -3,7 +3,7 @@ export const COLORS = {
   greyish: "#403D39",
   cement: "#CCC5B9",
   notwhite: "#FFFCF2",
-  safety: "#EB5E28",
+  safety: "#f58549",
 };
 
 export const SIZES = {

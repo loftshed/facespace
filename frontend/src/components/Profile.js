@@ -7,6 +7,7 @@ import { FaceContext } from "./FaceContext";
 const Profile = () => {
   const { members } = useContext(FaceContext);
   const [currentProfile, setCurrentProfile] = useState([]);
+  const { name, friends, avatarUrl } = currentProfile;
   const params = useParams();
   useEffect(() => {
     (async () => {
@@ -20,23 +21,25 @@ const Profile = () => {
     })();
   }, [setCurrentProfile]);
 
-  console.log(members);
-  console.log(currentProfile);
+  console.log(friends);
 
   return (
     <Wrapper>
       <Background src="/images/facespace_bg.jpg" />
       <ProfileContainer>
         <div style={{ display: "flex" }}>
-          <ProfilePic src={currentProfile.avatarUrl} />
-          <Name>{currentProfile.name}</Name>
+          <ProfilePic src={avatarUrl} />
+          <Name>{name}</Name>
         </div>
         <Friends>
-          <FriendsHeading>{currentProfile.name}'s Friends</FriendsHeading>
-          {currentProfile.id &&
-            currentProfile.friends.map((el) => {
-              <div></div>;
-            })}
+          <FriendsHeading>{name}'s Friends</FriendsHeading>
+          <FriendsList>
+            {friends &&
+              friends.map((friendId) => {
+                console.log(friendId);
+                return <div key={friendId}>{friendId}</div>;
+              })}
+          </FriendsList>
         </Friends>
       </ProfileContainer>
     </Wrapper>
@@ -59,16 +62,24 @@ const ProfileContainer = styled.div`
   gap: 25px;
 `;
 
-const Friends = styled.div``;
+const Friends = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
 
 const FriendsHeading = styled.h3`
   width: 100%;
   border-bottom: solid 2px ${COLORS.cement}; ;
 `;
+const FriendsList = styled.div`
+  display: flex;
+  gap: 15px;
+`;
 
 const Background = styled.img`
   width: 100%;
-  max-height: 400px;
+  max-height: 300px;
   object-fit: cover;
   object-position: center;
 `;
@@ -79,5 +90,5 @@ const ProfilePic = styled.img`
   margin-top: -125px;
 `;
 const Name = styled.h2`
-  margin: 5px 10px;
+  margin: 10px;
 `;

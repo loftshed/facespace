@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -59,6 +59,7 @@ const PicGrid = styled.div`
   flex-wrap: wrap;
   gap: 10px;
   width: fit-content;
+  justify-content: space-around;
 `;
 const ProfilePic = styled.img`
   border: solid 2px ${COLORS.safety};
