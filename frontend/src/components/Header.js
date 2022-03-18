@@ -10,6 +10,7 @@ const Header = () => {
       <Logo>
         <StyledLink to="/">Facespace</StyledLink>
       </Logo>
+      {/* <MiniText>Home</MiniText> */}
       <Button>
         <StyledLink to="/signin/">Sign In</StyledLink>
       </Button>
@@ -33,6 +34,19 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${COLORS.notwhite};
 `;
+
+// const MiniText = styled.div`
+//   position: absolute;
+//   left: 132px;
+//   top: 30px;
+//   font-size: 12px;
+//   border-radius: 5px;
+
+//   padding: 5px 10px;
+//   text-decoration: none;
+//   background-color: ${COLORS.blackest};
+//   color: ${COLORS.notwhite};
+// `;
 
 const Logo = styled.h1`
   font-weight: 400;
