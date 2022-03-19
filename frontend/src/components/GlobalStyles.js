@@ -5,7 +5,7 @@ export const breakpoints = { tablet: "600px" };
 
 export default createGlobalStyle`
     :root {
-        --primary-color: ${COLORS.safety};
+        --primary-color: ${COLORS.primaryAccentClr};
         --accent-bg-color: rgba(204, 85, 0, 0.1);
         --page-horizontal-padding: 20px;
         --header-height: 50px;
@@ -25,7 +25,7 @@ export default createGlobalStyle`
     body {
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
-        background-color: ${COLORS.greyish};
+        background-color: ${COLORS.backgroundClr};
     }
 
     img, picture, video, canvas, svg {
@@ -90,7 +90,7 @@ export default createGlobalStyle`
         content: none;
     }
     h1, h2, h3 {
-        color: var(--primary-color);
+        color: ${COLORS.headingsClr};
     }
     h1 {
         font-size: 36px;
@@ -103,6 +103,6 @@ export default createGlobalStyle`
         /* text-decoration: underline;
         text-underline-offset: 2px;
         text-decoration-thickness: 2px;
-        text-decoration-color: ${COLORS.cement}; */
+        text-decoration-color: ${COLORS.secondaryAccentClr}; */
     }
 `;

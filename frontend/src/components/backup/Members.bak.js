@@ -58,12 +58,12 @@ const Wrapper = styled.div`
 const Heading = styled.h3`
   margin: 5px;
   width: 100%;
-  border-bottom: 2px solid ${COLORS.cement};
+  border-bottom: 2px solid ${COLORS.secondaryAccentClr};
   margin-bottom: 10px;
   /* text-decoration: underline;
   text-underline-offset: 2px;
   text-decoration-thickness: 2px;
-  text-decoration-color: ${COLORS.cement}; */
+  text-decoration-color: ${COLORS.secondaryAccentClr}; */
 `;
 const PicGrid = styled.div`
   display: flex;
@@ -73,14 +73,14 @@ const PicGrid = styled.div`
   justify-content: space-around;
 `;
 const ProfilePic = styled.img`
-  border: solid 2px ${COLORS.safety};
+  border: solid 2px ${COLORS.primaryAccentClr};
   border-radius: 2px;
   width: 125px;
   height: 125px;
   transition: all 0.2s;
   &:hover {
     transform: scale(99%);
-    border: solid 3px ${COLORS.safety};
+    border: solid 3px ${COLORS.primaryAccentClr};
     cursor: pointer;
   }
 `;

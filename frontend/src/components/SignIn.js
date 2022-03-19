@@ -38,7 +38,7 @@ const Overlay = styled.div`
   position: absolute;
   height: inherit;
   width: inherit;
-  background-color: ${COLORS.blackest};
+  background-color: ${COLORS.blackestClr};
   opacity: 60%;
   z-index: 0;
 `;
@@ -55,17 +55,17 @@ const LoginContainer = styled.div`
   align-items: center;
   backdrop-filter: blur(10px);
   z-index: 1;
-  /* background-color: ${COLORS.cement}; */
+  /* background-color: ${COLORS.secondaryAccentClr}; */
   border-radius: 12px;
-  border: solid 2px ${COLORS.cement};
+  border: solid 2px ${COLORS.secondaryAccentClr};
 `;
 
 const Heading = styled.h3`
   font-size: 20px;
-  background-color: ${COLORS.safety};
-  color: ${COLORS.notwhite};
+  background-color: ${COLORS.primaryAccentClr};
+  color: ${COLORS.headingsClr};
   padding: 10px 40px;
-  border-bottom: 3px solid ${COLORS.cement};
+  border-bottom: 3px solid ${COLORS.secondaryAccentClr};
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 `;
@@ -83,12 +83,12 @@ const Input = styled.input`
   font-size: 20px;
   border-radius: 5px;
   line-height: 40px;
-  color: ${COLORS.blackest};
-  border: solid 2px ${COLORS.cement};
+  color: ${COLORS.blackestClr};
+  border: solid 2px ${COLORS.secondaryAccentClr};
   display: flex;
   align-items: center;
   padding: 0px 10px;
   &:focus {
-    outline: solid 2px ${COLORS.safety};
+    outline: solid 2px ${COLORS.primaryAccentClr};
   }
 `;

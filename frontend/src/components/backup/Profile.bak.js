@@ -55,7 +55,7 @@ const Friends = styled.div`
 
 const FriendsHeading = styled.h3`
   width: 100%;
-  border-bottom: solid 2px ${COLORS.cement}; ;
+  border-bottom: solid 2px ${COLORS.secondaryAccentClr}; ;
 `;
 const FriendsList = styled.div`
   display: flex;
@@ -73,7 +73,7 @@ const Background = styled.img`
 `;
 const ProfilePic = styled.img`
   width: 250px;
-  border: 5px solid ${COLORS.safety};
+  border: 5px solid ${COLORS.primaryAccentClr};
   border-radius: 2px;
   margin-top: -125px;
 `;

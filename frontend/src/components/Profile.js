@@ -65,7 +65,7 @@ const Background = styled.img`
 `;
 const ProfilePic = styled.img`
   width: 250px;
-  border: 5px solid ${COLORS.safety};
+  border: 5px solid ${COLORS.primaryAccentClr};
   border-radius: 2px;
   margin-top: -125px;
 `;

@@ -21,18 +21,20 @@ const Header = () => {
 export default Header;
 
 const Wrapper = styled.div`
-  background-color: ${COLORS.safety};
+  background-color: ${COLORS.primaryAccentClr};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 20px;
+  padding: 0px 60px;
   height: ${SIZES.headerHeight};
   width: 100%;
+  box-shadow: inset 0px 0px 5px 0px ${COLORS.blackestClr};
+  /* border-bottom: 3px solid ${COLORS.secondaryAccentClr}; */
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: ${COLORS.notwhite};
+  color: ${COLORS.headingsClr};
 `;
 
 // const MiniText = styled.div`
@@ -44,14 +46,14 @@ const StyledLink = styled(Link)`
 
 //   padding: 5px 10px;
 //   text-decoration: none;
-//   background-color: ${COLORS.blackest};
-//   color: ${COLORS.notwhite};
+//   background-color: ${COLORS.blackestClr};
+//   color: ${COLORS.headingsClr};
 // `;
 
 const Logo = styled.h1`
   font-weight: 400;
   padding: 10px;
-  text-shadow: 2px 1px 0px ${COLORS.greyish};
+  text-shadow: 2px 1px 0px ${COLORS.backgroundClr};
   transition: 0.05s linear all;
   &:hover {
     transform: rotate(-1deg);

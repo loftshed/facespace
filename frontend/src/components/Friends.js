@@ -42,8 +42,8 @@ const FriendCard = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   height: 185px;
-  background-color: ${COLORS.safety};
-  color: ${COLORS.notwhite};
+  background-color: ${COLORS.primaryAccentClr};
+  color: ${COLORS.headingsClr};
   border-radius: 5px;
 `;
 
@@ -54,7 +54,7 @@ const FriendName = styled.div`
 
 const FriendsHeading = styled.h3`
   width: 100%;
-  border-bottom: solid 2px ${COLORS.cement}; ;
+  border-bottom: solid 2px ${COLORS.secondaryAccentClr}; ;
 `;
 const FriendsList = styled.div`
   display: flex;

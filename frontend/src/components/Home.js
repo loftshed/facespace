@@ -17,5 +17,5 @@ const Wrapper = styled.div`
   width: 80%;
   height: 100%;
   /* padding: 25px 100px 0px 100px; */
-  background-color: ${COLORS.greyish};
+  background-color: ${COLORS.backgroundClr};
 `;
