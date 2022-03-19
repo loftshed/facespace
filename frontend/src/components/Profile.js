@@ -33,7 +33,10 @@ const Profile = () => {
       <ProfileContainer>
         <div style={{ display: "flex" }}>
           <ProfilePic src={avatarUrl} />
-          <Name>{name}</Name>
+          <Name>
+            {name}
+            {friends && <FriendCount>{friends.length} friends</FriendCount>}
+          </Name>
         </div>
         <Friends />
       </ProfileContainer>
@@ -53,8 +56,14 @@ const Wrapper = styled.div`
 const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 75%;
+  width: 700px;
   gap: 25px;
+`;
+
+const FriendCount = styled.p`
+  text-align: right;
+  font-size: 14px;
+  color: ${COLORS.tertiaryAccentClr};
 `;
 
 const Background = styled.img`
@@ -67,7 +76,7 @@ const ProfilePic = styled.img`
   width: 250px;
   /* border: 5px solid ${COLORS.secondaryAccentClr}; */
   box-shadow: 0px 0px 0px 10px ${COLORS.backgroundClr};
-  border-radius: 5px;
+  border-radius: 200px;
   /* margin-left: 5px; */
   margin-top: -125px;
 `;

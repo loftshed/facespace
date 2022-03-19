@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { FaceContext } from "./FaceContext";
@@ -18,10 +19,12 @@ const Friends = () => {
               (el) => el.id === friendId
             );
             return (
-              <FriendCard key={id}>
-                <FriendProfilePic src={avatarUrl} />
-                <FriendName>{name}</FriendName>
-              </FriendCard>
+              <StyledLink to={`/user/${id}`}>
+                <FriendCard key={id}>
+                  <FriendProfilePic src={avatarUrl} />
+                  <FriendName>{name}</FriendName>
+                </FriendCard>
+              </StyledLink>
             );
           })}
       </FriendsList>
@@ -31,10 +34,13 @@ const Friends = () => {
 
 export default Friends;
 
+const StyledLink = styled(Link)``;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
+  width: fit-content;
 `;
 
 const FriendCard = styled.div`
@@ -59,7 +65,7 @@ const FriendsHeading = styled.h3`
 `;
 const FriendsList = styled.div`
   display: flex;
-  gap: 15px;
+  gap: 20px;
 `;
 
 const FriendProfilePic = styled.img`
