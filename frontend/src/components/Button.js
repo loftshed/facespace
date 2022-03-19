@@ -14,6 +14,7 @@ const Wrapper = styled.button`
   padding: 8px 16px;
   border-radius: 50px;
   border-style: none;
+  width: fit-content;
   box-shadow: 1px -1px 0px ${COLORS.cement}, -1px 1px 0px ${COLORS.blackest};
   background-color: ${COLORS.greyish};
   color: ${COLORS.notwhite};
