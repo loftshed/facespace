@@ -18,10 +18,10 @@ const Friends = () => {
               (el) => el.id === friendId
             );
             return (
-              <div key={id}>
-                <FriendName>{name}</FriendName>
+              <FriendCard key={id}>
                 <FriendProfilePic src={avatarUrl} />
-              </div>
+                <FriendName>{name}</FriendName>
+              </FriendCard>
             );
           })}
       </FriendsList>
@@ -37,17 +37,19 @@ const Wrapper = styled.div`
   gap: 15px;
 `;
 
-const FriendName = styled.div`
+const FriendCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 185px;
   background-color: ${COLORS.safety};
   color: ${COLORS.notwhite};
-  position: absolute;
-  padding: 5px;
-  transform: translateY(150px);
-  /* opacity: 20%; */
-  width: 150px;
+  border-radius: 5px;
+`;
+
+const FriendName = styled.div`
+  padding: 5px 0px;
   text-align: center;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
 `;
 
 const FriendsHeading = styled.h3`

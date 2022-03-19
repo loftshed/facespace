@@ -22,8 +22,6 @@ export const FaceProvider = ({ children }) => {
         setMembers,
         currentProfile,
         setCurrentProfile,
-        // currentProfileFriends,
-        // setCurrentProfileFriends,
         loadMembers,
       }}
     >
