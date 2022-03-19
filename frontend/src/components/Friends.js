@@ -34,7 +34,10 @@ const Friends = () => {
 
 export default Friends;
 
-const StyledLink = styled(Link)``;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  text-decoration-color: ${COLORS.tertiaryAccentClr};
+`;
 
 const Wrapper = styled.div`
   display: flex;

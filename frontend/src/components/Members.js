@@ -18,8 +18,8 @@ const Members = () => {
           <PicGrid>
             {members.map((el) => {
               return (
-                <StyledLink to={`/user/${el.id}`}>
-                  <ProfilePic alt={el.name} key={el.id} src={el.avatarUrl} />
+                <StyledLink key={el.id} to={`/user/${el.id}`}>
+                  <ProfilePic alt={el.name} src={el.avatarUrl} />
                 </StyledLink>
               );
             })}

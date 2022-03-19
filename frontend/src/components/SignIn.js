@@ -3,7 +3,7 @@ import { COLORS, SIZES } from "../constants";
 import Button from "./Button";
 
 const SignIn = () => {
-  const handleClick = (ev) => {
+  const handleSubmit = (ev) => {
     console.log(ev);
   };
 
@@ -19,6 +19,7 @@ const SignIn = () => {
                 key="username"
                 type="text"
                 placeholder={"Your first name"}
+                onSubmit={handleSubmit}
               />
               <Button>Submit</Button>
             </InputArea>
