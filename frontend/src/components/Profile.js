@@ -37,7 +37,11 @@ const Profile = () => {
             {friends &&
               friends.map((friendId) => {
                 console.log(friendId);
-                return <div key={friendId}>{friendId}</div>;
+                return (
+                  <div key={friendId}>
+                    <FriendProfilePic />
+                  </div>
+                );
               })}
           </FriendsList>
         </Friends>
@@ -89,6 +93,12 @@ const ProfilePic = styled.img`
   border-radius: 2px;
   margin-top: -125px;
 `;
+
+const FriendProfilePic = styled.img`
+  width: 150px;
+  height: 150px;
+`;
+
 const Name = styled.h2`
   margin: 10px;
 `;

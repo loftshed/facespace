@@ -12,7 +12,7 @@ const SignIn = () => {
             <Heading>Facespace</Heading>
             <InputArea>
               <Input type="text" placeholder={"Your first name"} />
-              <Button style={{ alignSelf: "flex-end" }}>Submit</Button>
+              <Button>Submit</Button>
             </InputArea>
           </div>
         </LoginContainer>
@@ -73,8 +73,10 @@ const Heading = styled.h3`
 const InputArea = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px 40px;
+  align-items: flex-end;
+  width: 100%;
+  gap: 15px;
+  padding: 15px 40px;
 `;
 
 const Input = styled.input`

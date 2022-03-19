@@ -11,15 +11,20 @@ const Wrapper = styled.button`
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   font-weight: 500;
-  padding: 8px 16px;
+  padding: 6px 12px;
+  outline: 2px solid white;
   border-radius: 50px;
   border-style: none;
   width: fit-content;
-  box-shadow: 1px -1px 0px ${COLORS.cement}, -1px 1px 0px ${COLORS.blackest};
-  background-color: ${COLORS.greyish};
+  /* box-shadow: 1px -1px 0px ${COLORS.cement}, -1px 1px 0px ${COLORS.blackest}; */
+  background-color: rgba(255, 255, 255, 0.1);
   color: ${COLORS.notwhite};
+  cursor: pointer;
   transition: all linear 0.1s;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
   &:active {
-    box-shadow: -1px 1px 0px ${COLORS.cement}, 1px -1px 0px ${COLORS.blackest};
+    background-color: ${COLORS.cement};
   }
 `;
