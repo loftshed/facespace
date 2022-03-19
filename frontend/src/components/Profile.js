@@ -22,6 +22,7 @@ const Profile = () => {
   }, [setCurrentProfile]);
 
   console.log(friends);
+  console.log(members);
 
   return (
     <Wrapper>
@@ -39,6 +40,8 @@ const Profile = () => {
                 console.log(friendId);
                 return (
                   <div key={friendId}>
+                    {members && <div>test</div>}
+
                     <FriendProfilePic />
                   </div>
                 );
