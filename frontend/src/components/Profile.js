@@ -1,14 +1,25 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { COLORS, SIZES } from "../constants";
 import { FaceContext } from "./FaceContext";
 
 const Profile = () => {
-  const { members } = useContext(FaceContext);
-  const [currentProfile, setCurrentProfile] = useState([]);
+  const {
+    members,
+    currentProfile,
+    setCurrentProfile,
+    // currentProfileFriends,
+    // setCurrentProfileFriends,
+    loadMembers,
+  } = useContext(FaceContext);
   const { name, friends, avatarUrl } = currentProfile;
   const params = useParams();
+
+  useEffect(() => {
+    loadMembers();
+  }, []);
+
   useEffect(() => {
     (async () => {
       try {
@@ -19,10 +30,7 @@ const Profile = () => {
         console.log(err);
       }
     })();
-  }, [setCurrentProfile]);
-
-  console.log(friends);
-  console.log(members);
+  }, [setCurrentProfile, params.user]);
 
   return (
     <Wrapper>
@@ -37,12 +45,13 @@ const Profile = () => {
           <FriendsList>
             {friends &&
               friends.map((friendId) => {
-                console.log(friendId);
+                const { id, name, avatarUrl } = members.find(
+                  (el) => el.id === friendId
+                );
                 return (
-                  <div key={friendId}>
-                    {members && <div>test</div>}
-
-                    <FriendProfilePic />
+                  <div key={id}>
+                    <FriendName>{name}</FriendName>
+                    <FriendProfilePic src={avatarUrl} />
                   </div>
                 );
               })}
@@ -73,6 +82,19 @@ const Friends = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+`;
+
+const FriendName = styled.div`
+  background-color: ${COLORS.safety};
+  color: ${COLORS.notwhite};
+  position: absolute;
+  padding: 5px;
+  transform: translateY(150px);
+  /* opacity: 20%; */
+  width: 150px;
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 `;
 
 const FriendsHeading = styled.h3`

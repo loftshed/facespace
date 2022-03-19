@@ -10,18 +10,10 @@ import { FaceContext } from "./FaceContext";
 // import { COLORS } from "../constants";
 
 const App = () => {
-  const { setMembers } = useContext(FaceContext);
+  const { loadMembers } = useContext(FaceContext);
   useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch("/api/users/", {});
-        const data = await response.json();
-        setMembers(data.data);
-      } catch (err) {
-        console.log(err);
-      }
-    })();
-  }, [setMembers]);
+    loadMembers();
+  }, []);
 
   return (
     <BrowserRouter>
