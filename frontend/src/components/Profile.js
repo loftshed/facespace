@@ -3,16 +3,11 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { COLORS, SIZES } from "../constants";
 import { FaceContext } from "./FaceContext";
+import Friends from "./Friends";
 
 const Profile = () => {
-  const {
-    members,
-    currentProfile,
-    setCurrentProfile,
-    // currentProfileFriends,
-    // setCurrentProfileFriends,
-    loadMembers,
-  } = useContext(FaceContext);
+  const { currentProfile, setCurrentProfile, loadMembers } =
+    useContext(FaceContext);
   const { name, friends, avatarUrl } = currentProfile;
   const params = useParams();
 
@@ -40,23 +35,7 @@ const Profile = () => {
           <ProfilePic src={avatarUrl} />
           <Name>{name}</Name>
         </div>
-        <Friends>
-          <FriendsHeading>{name}'s Friends</FriendsHeading>
-          <FriendsList>
-            {friends &&
-              friends.map((friendId) => {
-                const { id, name, avatarUrl } = members.find(
-                  (el) => el.id === friendId
-                );
-                return (
-                  <div key={id}>
-                    <FriendName>{name}</FriendName>
-                    <FriendProfilePic src={avatarUrl} />
-                  </div>
-                );
-              })}
-          </FriendsList>
-        </Friends>
+        <Friends />
       </ProfileContainer>
     </Wrapper>
   );
@@ -78,34 +57,6 @@ const ProfileContainer = styled.div`
   gap: 25px;
 `;
 
-const Friends = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-`;
-
-const FriendName = styled.div`
-  background-color: ${COLORS.safety};
-  color: ${COLORS.notwhite};
-  position: absolute;
-  padding: 5px;
-  transform: translateY(150px);
-  /* opacity: 20%; */
-  width: 150px;
-  text-align: center;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-`;
-
-const FriendsHeading = styled.h3`
-  width: 100%;
-  border-bottom: solid 2px ${COLORS.cement}; ;
-`;
-const FriendsList = styled.div`
-  display: flex;
-  gap: 15px;
-`;
-
 const Background = styled.img`
   width: 100%;
   max-height: 300px;
@@ -117,11 +68,6 @@ const ProfilePic = styled.img`
   border: 5px solid ${COLORS.safety};
   border-radius: 2px;
   margin-top: -125px;
-`;
-
-const FriendProfilePic = styled.img`
-  width: 150px;
-  height: 150px;
 `;
 
 const Name = styled.h2`
