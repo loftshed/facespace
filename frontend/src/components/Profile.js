@@ -65,11 +65,13 @@ const Background = styled.img`
 `;
 const ProfilePic = styled.img`
   width: 250px;
-  border: 5px solid ${COLORS.primaryAccentClr};
-  border-radius: 2px;
+  /* border: 5px solid ${COLORS.secondaryAccentClr}; */
+  box-shadow: 0px 0px 0px 10px ${COLORS.backgroundClr};
+  border-radius: 5px;
+  /* margin-left: 5px; */
   margin-top: -125px;
 `;
 
 const Name = styled.h2`
-  margin: 10px;
+  margin: 10px 20px;
 `;

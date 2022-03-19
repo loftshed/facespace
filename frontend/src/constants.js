@@ -12,8 +12,9 @@ export const SIZES = {
 
 export const COLORS = {
   blackestClr: "#252422",
-  backgroundClr: "#3f4c51",
-  primaryAccentClr: "#333533",
-  secondaryAccentClr: "#CCC5B9",
-  headingsClr: "#FFFCF2",
+  backgroundClr: "#212121",
+  primaryAccentClr: "#383838",
+  secondaryAccentClr: "#22D9C6",
+  tertiaryAccentClr: "#BA86FB",
+  headingsClr: "#DADB0D",
 };

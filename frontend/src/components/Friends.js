@@ -42,6 +42,7 @@ const FriendCard = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   height: 185px;
+  min-width: 150px;
   background-color: ${COLORS.primaryAccentClr};
   color: ${COLORS.headingsClr};
   border-radius: 5px;

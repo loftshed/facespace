@@ -28,7 +28,7 @@ const Wrapper = styled.div`
   padding: 0px 60px;
   height: ${SIZES.headerHeight};
   width: 100%;
-  box-shadow: inset 0px 0px 5px 0px ${COLORS.blackestClr};
+  /* box-shadow: inset 0px 0px 5px 0px ${COLORS.blackestClr}; */
   /* border-bottom: 3px solid ${COLORS.secondaryAccentClr}; */
 `;
 

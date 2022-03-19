@@ -14,7 +14,7 @@ export default Home;
 
 const Wrapper = styled.div`
   display: flex;
-  width: 80%;
+  width: 90%;
   height: 100%;
   /* padding: 25px 100px 0px 100px; */
   background-color: ${COLORS.backgroundClr};
