@@ -1,5 +1,13 @@
 const { findUser, findUserIndex, sendResponse } = require("./utils");
 
+///////////////////////////////
+const handleSignIn = (req, res) => {
+  console.log(res);
+  // findUser(res.locals.users)
+};
+
+///////////////////////////////
+
 // GET all users
 const getUsers = (req, res) => {
   const activeUsers = res.locals.users.filter((user) => !user.deleted);
@@ -107,4 +115,5 @@ module.exports = {
   getUserById,
   handleFriends,
   updateUser,
+  handleSignIn,
 };

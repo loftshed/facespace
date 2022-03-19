@@ -8,7 +8,7 @@ import { FaceContext } from "./FaceContext";
 const Members = () => {
   const { members } = useContext(FaceContext);
 
-  //TODO modify this shiz to use CSS grid
+  //TODO modify this shiz to use CSS grid?
 
   return (
     <Wrapper>

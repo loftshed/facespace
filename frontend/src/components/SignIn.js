@@ -3,6 +3,10 @@ import { COLORS, SIZES } from "../constants";
 import Button from "./Button";
 
 const SignIn = () => {
+  const handleClick = (ev) => {
+    console.log(ev);
+  };
+
   return (
     <Wrapper>
       <Overlay />
@@ -11,7 +15,11 @@ const SignIn = () => {
           <div>
             <Heading>Facespace</Heading>
             <InputArea>
-              <Input type="text" placeholder={"Your first name"} />
+              <Input
+                key="username"
+                type="text"
+                placeholder={"Your first name"}
+              />
               <Button>Submit</Button>
             </InputArea>
           </div>

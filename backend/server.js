@@ -8,6 +8,7 @@ const {
   getUserById,
   handleFriends,
   updateUser,
+  handleSignIn,
 } = require("./handlers");
 
 // placing the users in memory | a poor man's database ;)
@@ -36,8 +37,9 @@ app.get("/api/users/:id", passUsersAlong, getUserById);
 app.delete("/api/users/:id", passUsersAlong, deleteUser);
 app.patch("/api/friends", passUsersAlong, handleFriends);
 
-// validate login information
-// app.put("/api/signin/:id", passUsersAlong, updateUser);
+////
+app.post("/api/signin", passUsersAlong, handleSignIn);
+///
 
 // this is our catch all endpoint.
 app.get("*", (req, res) => {

@@ -26,6 +26,7 @@ const Profile = () => {
       }
     })();
   }, [setCurrentProfile, params.user]);
+  /// TODO, get this all centered properly
 
   return (
     <Wrapper>
@@ -56,7 +57,8 @@ const Wrapper = styled.div`
 const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 700px;
+  /* align-items: center; */
+  width: 600px;
   gap: 25px;
 `;
 
