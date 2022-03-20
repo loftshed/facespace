@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { useContext, useMemo } from "react";
+import { useContext, useMemo, useEffect } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import GlobalStyles from "./GlobalStyles";
@@ -9,13 +9,20 @@ import Profile from "./Profile";
 import { FaceContext } from "./FaceContext";
 
 const App = () => {
-  const { loadMembers } = useContext(FaceContext);
+  const { loadMembers, setSignedInUser } = useContext(FaceContext);
+
+  useEffect(() => {
+    const persistedUser = localStorage.getItem("user");
+    const jsonifiedPersistedUser = JSON.parse(persistedUser);
+
+    if (jsonifiedPersistedUser) {
+      setSignedInUser(jsonifiedPersistedUser);
+    }
+  }, []);
+
   useMemo(() => {
     return loadMembers();
   }, []);
-  // useLayoutEffect(() => {
-  //   loadMembers();
-  // }, []);
 
   return (
     <BrowserRouter>

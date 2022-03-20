@@ -10,13 +10,14 @@ const SignIn = () => {
   const { setSignedInUser, signedInUser } = useContext(FaceContext);
   const history = useHistory();
 
-  if (signedInUser.name) {
+  if (signedInUser.id) {
     history.push(`/user/${signedInUser.id}`);
   }
 
   const handleSignIn = (response) => {
-    console.log(response.data.id);
     setSignedInUser(response.data);
+    const jsonifiedUser = JSON.stringify(response.data);
+    localStorage.setItem("user", jsonifiedUser);
     // TODO maybe display login successful or loading spinner before history.push..
     history.push(`/user/${response.data.id}`);
   };

@@ -10,7 +10,6 @@ const Header = () => {
   const { signedInUser } = useContext(FaceContext);
   // useEffect(() => {}, [signedInUser]);
 
-  console.log(signedInUser);
   return (
     <Wrapper>
       <Logo>
