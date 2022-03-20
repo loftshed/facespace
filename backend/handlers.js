@@ -3,6 +3,7 @@ const { findUser, findUserIndex, sendResponse } = require("./utils");
 ///////////////////////////////
 
 // POST super secure sign in credentials
+// TODO validate credentials (one name, no numbers, etc)
 const handleSignIn = (req, res) => {
   const user = res.locals.users.find((el) => {
     return el.name.toLowerCase() === req.body.user.toLowerCase();
@@ -25,9 +26,8 @@ const getUsers = (req, res) => {
 const getUserById = (req, res) => {
   const userId = req.params.id;
   const user = findUser(res.locals.users, userId);
-
   user
-    ? sendResponse(res, 200, user)
+    ? sendResponse(res, 200, user, "success")
     : sendResponse(res, 404, null, "user not found");
 };
 

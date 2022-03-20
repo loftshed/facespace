@@ -19,10 +19,11 @@ const Profile = () => {
     (async () => {
       try {
         const response = await fetch(`/api/users/${params.user}`, {});
-        const data = await response.json();
-        setCurrentProfile(data.data);
+        const jsonifiedResponse = await response.json();
+        setCurrentProfile(jsonifiedResponse.data);
       } catch (err) {
         console.log(err);
+        // TODO make error page
       }
     })();
   }, [setCurrentProfile, params.user]);

@@ -1,26 +1,30 @@
 import styled from "styled-components";
+import { useContext } from "react";
+
 import { COLORS, SIZES } from "../constants";
+import { FaceContext } from "./FaceContext";
 import Button from "./Button";
 
 const SignIn = () => {
-  const handleSignInSuccess = () => {
-    console.log("signin successful");
-  };
-  const handleSignInFailure = () => {
-    console.log("signin failed");
+  const { setSignedInUser } = useContext(FaceContext);
+
+  const handleSignIn = (res) => {
+    console.log(res);
+    res.ok ? console.log("signin successful") : console.log("signin failed");
   };
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     const inputVal = ev.target[0].value;
     try {
-      await fetch("/api/signin", {
+      const response = await fetch("/api/signin", {
         method: "POST",
         body: JSON.stringify({ user: inputVal }),
         headers: { "Content-type": "application/json" },
-      }).then((response) =>
-        response.ok ? handleSignInSuccess() : handleSignInFailure()
-      );
+      });
+      const jsonifiedResponse = await response.json();
+      console.log(jsonifiedResponse);
+      handleSignIn(response);
     } catch (err) {
       console.log(err);
     }
