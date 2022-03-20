@@ -3,17 +3,24 @@ import { COLORS, SIZES } from "../constants";
 import Button from "./Button";
 
 const SignIn = () => {
+  const handleSignInSuccess = () => {
+    console.log("signin successful");
+  };
+  const handleSignInFailure = () => {
+    console.log("signin failed");
+  };
+
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     const inputVal = ev.target[0].value;
-    console.log(inputVal);
     try {
-      const response = await fetch("/api/signin", {
+      await fetch("/api/signin", {
         method: "POST",
         body: JSON.stringify({ user: inputVal }),
         headers: { "Content-type": "application/json" },
-      });
-      console.log(response);
+      }).then((response) =>
+        response.ok ? handleSignInSuccess() : handleSignInFailure()
+      );
     } catch (err) {
       console.log(err);
     }

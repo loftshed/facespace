@@ -4,6 +4,7 @@ export const FaceContext = createContext(null);
 export const FaceProvider = ({ children }) => {
   const [members, setMembers] = useState({});
   const [currentProfile, setCurrentProfile] = useState([]);
+  const [signedInUser, setSignedInUser] = useState({});
 
   const loadMembers = async () => {
     try {
@@ -22,6 +23,8 @@ export const FaceProvider = ({ children }) => {
         setMembers,
         currentProfile,
         setCurrentProfile,
+        signedInUser,
+        setSignedInUser,
         loadMembers,
       }}
     >
