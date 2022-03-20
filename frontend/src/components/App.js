@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext, useMemo } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import GlobalStyles from "./GlobalStyles";
@@ -7,13 +7,15 @@ import Home from "./Home";
 import SignIn from "./SignIn";
 import Profile from "./Profile";
 import { FaceContext } from "./FaceContext";
-// import { COLORS } from "../constants";
 
 const App = () => {
   const { loadMembers } = useContext(FaceContext);
-  useEffect(() => {
-    loadMembers();
+  useMemo(() => {
+    return loadMembers();
   }, []);
+  // useLayoutEffect(() => {
+  //   loadMembers();
+  // }, []);
 
   return (
     <BrowserRouter>

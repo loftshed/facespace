@@ -8,8 +8,8 @@ export const FaceProvider = ({ children }) => {
   const loadMembers = async () => {
     try {
       const response = await fetch("/api/users/", {});
-      const data = await response.json();
-      setMembers(data.data);
+      const jsonifiedResponse = await response.json();
+      setMembers(jsonifiedResponse.data);
     } catch (err) {
       console.log(err);
     }

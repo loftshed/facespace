@@ -19,8 +19,8 @@ const Friends = () => {
               (el) => el.id === friendId
             );
             return (
-              <StyledLink to={`/user/${id}`}>
-                <FriendCard key={id}>
+              <StyledLink key={id} to={`/user/${id}`}>
+                <FriendCard>
                   <FriendProfilePic src={avatarUrl} />
                   <FriendName>{name}</FriendName>
                 </FriendCard>

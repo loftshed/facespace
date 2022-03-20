@@ -1,9 +1,15 @@
 const { findUser, findUserIndex, sendResponse } = require("./utils");
 
 ///////////////////////////////
+
+// POST super secure sign in credentials
 const handleSignIn = (req, res) => {
-  console.log(res);
-  // findUser(res.locals.users)
+  const user = res.locals.users.find((el) => {
+    return el.name.toLowerCase() === req.body.user.toLowerCase();
+  });
+  user
+    ? sendResponse(res, 200, null, "Sign-in successful")
+    : sendResponse(res, 500, null, "User not found");
 };
 
 ///////////////////////////////

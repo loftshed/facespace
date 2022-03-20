@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useLayoutEffect, useContext, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { COLORS, SIZES } from "../constants";
@@ -11,7 +11,7 @@ const Profile = () => {
   const { name, friends, avatarUrl } = currentProfile;
   const params = useParams();
 
-  useEffect(() => {
+  useMemo(() => {
     loadMembers();
   }, []);
 
