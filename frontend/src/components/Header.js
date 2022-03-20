@@ -1,19 +1,35 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
 
 import { COLORS, SIZES } from "../constants";
 import Button from "./Button";
+import { FaceContext } from "./FaceContext";
 
 const Header = () => {
+  const { signedInUser } = useContext(FaceContext);
+  // useEffect(() => {}, [signedInUser]);
+
+  console.log(signedInUser);
   return (
     <Wrapper>
       <Logo>
         <StyledLink to="/">Facespace</StyledLink>
       </Logo>
-      {/* <MiniText>Home</MiniText> */}
-      <Button type="button">
-        <StyledLink to="/signin/">Sign In</StyledLink>
-      </Button>
+      {signedInUser.name ? (
+        /// TODO move CSS into styled component
+        <h3 style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <p>Welcome back, {signedInUser.name}!</p>
+          <img
+            src={signedInUser.avatarUrl}
+            style={{ display: "inline", width: "40px", borderRadius: "20px" }}
+          />
+        </h3>
+      ) : (
+        <Button type="button">
+          <StyledLink to="/signin/">Sign In</StyledLink>
+        </Button>
+      )}
     </Wrapper>
   );
 };

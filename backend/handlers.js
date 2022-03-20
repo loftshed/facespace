@@ -8,7 +8,6 @@ const handleSignIn = (req, res) => {
   const user = res.locals.users.find((el) => {
     return el.name.toLowerCase() === req.body.user.toLowerCase();
   });
-  console.log(user);
   user
     ? sendResponse(res, 200, user, "Login successful")
     : sendResponse(res, 500, null, "User not found");

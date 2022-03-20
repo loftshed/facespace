@@ -1,16 +1,24 @@
 import styled from "styled-components";
 import { useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 import { COLORS, SIZES } from "../constants";
 import { FaceContext } from "./FaceContext";
 import Button from "./Button";
 
 const SignIn = () => {
-  const { setSignedInUser } = useContext(FaceContext);
+  const { setSignedInUser, signedInUser } = useContext(FaceContext);
+  const history = useHistory();
 
-  const handleSignIn = (res) => {
-    console.log(res);
-    res.ok ? console.log("signin successful") : console.log("signin failed");
+  if (signedInUser.name) {
+    history.push(`/user/${signedInUser.id}`);
+  }
+
+  const handleSignIn = (response) => {
+    console.log(response.data.id);
+    setSignedInUser(response.data);
+    // TODO maybe display login successful or loading spinner before history.push..
+    history.push(`/user/${response.data.id}`);
   };
 
   const handleSubmit = async (ev) => {
@@ -22,11 +30,9 @@ const SignIn = () => {
         body: JSON.stringify({ user: inputVal }),
         headers: { "Content-type": "application/json" },
       });
-      const jsonifiedResponse = await response.json();
-      console.log(jsonifiedResponse);
-      handleSignIn(response);
+      handleSignIn(await response.json());
     } catch (err) {
-      console.log(err);
+      console.log(await err.json());
     }
   };
 
