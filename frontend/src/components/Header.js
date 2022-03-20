@@ -11,7 +11,7 @@ const Header = () => {
         <StyledLink to="/">Facespace</StyledLink>
       </Logo>
       {/* <MiniText>Home</MiniText> */}
-      <Button>
+      <Button type="button">
         <StyledLink to="/signin/">Sign In</StyledLink>
       </Button>
     </Wrapper>

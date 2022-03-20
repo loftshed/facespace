@@ -4,7 +4,8 @@ import Button from "./Button";
 
 const SignIn = () => {
   const handleSubmit = (ev) => {
-    console.log(ev);
+    ev.preventDefault();
+    console.log("test");
   };
 
   return (
@@ -14,14 +15,17 @@ const SignIn = () => {
         <LoginContainer>
           <div>
             <Heading>Facespace</Heading>
-            <InputArea>
+            <InputArea
+              onSubmit={(ev) => {
+                handleSubmit(ev);
+              }}
+            >
               <Input
-                key="username"
+                id="usernameInput"
                 type="text"
                 placeholder={"Your first name"}
-                onSubmit={handleSubmit}
               />
-              <Button>Submit</Button>
+              <Button type={"submit"}>Submit</Button>
             </InputArea>
           </div>
         </LoginContainer>
@@ -79,7 +83,7 @@ const Heading = styled.h3`
   border-top-right-radius: 10px;
 `;
 
-const InputArea = styled.div`
+const InputArea = styled.form`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -98,6 +102,6 @@ const Input = styled.input`
   align-items: center;
   padding: 0px 10px;
   &:focus {
-    outline: solid 2px ${COLORS.primaryAccentClr};
+    outline: solid 2px ${COLORS.tertiaryAccentClr};
   }
 `;

@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { COLORS } from "../constants";
 
-const Button = ({ children }) => {
-  return <Wrapper>{children}</Wrapper>;
+const Button = ({ children, type }) => {
+  return <ButtWrapper type={type}>{children}</ButtWrapper>;
 };
 
 export default Button;
 
-const Wrapper = styled.button`
+const ButtWrapper = styled.button`
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   font-weight: 500;
