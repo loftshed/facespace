@@ -5,24 +5,15 @@ import { MdPersonAdd, MdPerson } from "react-icons/md";
 
 import { COLORS } from "../constants";
 import { FaceContext } from "./FaceContext";
-import LoadingSpinner from "./etc/LoadingSpinner";
 
 const Members = () => {
   const { members, signedInUser } = useContext(FaceContext);
   const { friends } = signedInUser;
   // const history = useHistory();
 
-  // if (!members) {
-  //   return (
-  //     <div>
-  //       <LoadingSpinner />
-  //     </div>
-  //   );
-  // }
-
   return (
     <Wrapper>
-      {members.length > 1 && (
+      {members.length > 0 && (
         <div>
           <Heading>All Facespace members</Heading>
           <PicGrid>
