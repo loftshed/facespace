@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 import { COLORS, SIZES } from "../constants";
 import { FaceContext } from "./FaceContext";
@@ -9,10 +10,11 @@ import Button from "./Button";
 const SignIn = () => {
   const { setSignedInUser, signedInUser } = useContext(FaceContext);
   const history = useHistory();
+  // const navigate = useNavigate();
 
-  if (signedInUser.id) {
-    history.push(`/user/${signedInUser.id}`);
-  }
+  // if (signedInUser.id) {
+  //   navigate(`/user/${signedInUser.id}`);
+  // }
 
   const handleSignIn = (response) => {
     setSignedInUser(response.data);
