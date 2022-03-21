@@ -4,7 +4,7 @@ import { COLORS, SIZES } from "../constants";
 const Footer = () => {
   return (
     <Wrapper>
-      <p>All your personal information ©2022 Facespace.</p>
+      <p>All of your personal information now ©2022 Facespace.</p>
     </Wrapper>
   );
 };

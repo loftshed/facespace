@@ -11,11 +11,13 @@ const SignIn = () => {
   const history = useHistory();
 
   const handleSignIn = (response) => {
-    setSignedInUser(response.data);
-    const jsonifiedUser = JSON.stringify(response.data);
-    localStorage.setItem("user", jsonifiedUser);
-    // TODO maybe display login successful or loading spinner before history.push..
-    history.push(`/user/${response.data.id}`);
+    if (response.data !== "error") {
+      setSignedInUser(response.data);
+      const jsonifiedUser = JSON.stringify(response.data);
+      localStorage.setItem("user", jsonifiedUser);
+      // TODO maybe display login successful or loading spinner before history.push..
+      history.push(`/user/${response.data.id}`);
+    }
   };
 
   const handleSubmit = async (ev) => {

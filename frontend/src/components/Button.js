@@ -11,7 +11,7 @@ const ButtWrapper = styled.button`
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   font-weight: 500;
-  padding: 6px 12px;
+  padding: 6px 12px 4px 12px;
   outline: 2px solid ${COLORS.secondaryAccentClr};
   border-radius: 50px;
   border-style: none;

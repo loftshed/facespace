@@ -73,9 +73,9 @@ const Header = () => {
           </div>
         </WelcomeBack>
       ) : (
-        <Button type="button">
-          <StyledLink to="/signin/">Sign In</StyledLink>
-        </Button>
+        <StyledLink to="/signin/">
+          <Button type="button">Sign In</Button>
+        </StyledLink>
       )}
     </Wrapper>
   );

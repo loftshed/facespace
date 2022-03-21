@@ -8,7 +8,7 @@
 
 export const SIZES = {
   headerHeight: "60px",
-  footerHeight: "35px",
+  footerHeight: "25px",
 };
 
 export const COLORS = {
