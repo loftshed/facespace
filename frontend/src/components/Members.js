@@ -6,7 +6,9 @@ import { COLORS } from "../constants";
 import { FaceContext } from "./FaceContext";
 
 const Members = () => {
-  const { members } = useContext(FaceContext);
+  const { members, signedInUser } = useContext(FaceContext);
+
+  console.log(signedInUser);
 
   //TODO modify this shiz to use CSS grid?
 

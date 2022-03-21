@@ -6,12 +6,12 @@ import { FaceContext } from "./FaceContext";
 import Friends from "./Friends";
 
 const Profile = () => {
-  const { currentProfile, setCurrentProfile, loadMembers } =
+  const { currentProfile, setCurrentProfile, loadMembers, signedInUser } =
     useContext(FaceContext);
   const { name, friends, avatarUrl } = currentProfile;
   const params = useParams();
 
-  useMemo(() => {
+  useEffect(() => {
     loadMembers();
   }, []);
 

@@ -6,12 +6,14 @@ import { FaceContext } from "./FaceContext";
 import { COLORS } from "../constants";
 
 const Friends = () => {
-  const { members, currentProfile } = useContext(FaceContext);
+  const { members, currentProfile, signedInUser } = useContext(FaceContext);
   const { name, friends } = currentProfile;
 
   return (
     <Wrapper>
-      <FriendsHeading>{name}'s Friends</FriendsHeading>
+      <FriendsHeading>
+        {name === signedInUser.name ? "Your Friends" : `${name}'s Friends`}
+      </FriendsHeading>
       <FriendsList>
         {friends &&
           friends.map((friendId) => {

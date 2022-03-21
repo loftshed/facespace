@@ -17,13 +17,12 @@ const Header = () => {
       </Logo>
       {signedInUser.name ? (
         /// TODO move CSS into styled component
-        <h3 style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <WelcomeBack>
           <p>Welcome back, {signedInUser.name}!</p>
-          <img
-            src={signedInUser.avatarUrl}
-            style={{ display: "inline", width: "40px", borderRadius: "20px" }}
-          />
-        </h3>
+          <StyledLink to={`/user/${signedInUser.id}`}>
+            <MiniAvatar src={signedInUser.avatarUrl} />
+          </StyledLink>
+        </WelcomeBack>
       ) : (
         <Button type="button">
           <StyledLink to="/signin/">Sign In</StyledLink>
@@ -52,6 +51,13 @@ const StyledLink = styled(Link)`
   color: ${COLORS.headingsClr};
 `;
 
+const WelcomeBack = styled.h3`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+`;
+
 // const MiniText = styled.div`
 //   position: absolute;
 //   left: 132px;
@@ -64,6 +70,17 @@ const StyledLink = styled(Link)`
 //   background-color: ${COLORS.blackestClr};
 //   color: ${COLORS.headingsClr};
 // `;
+
+const MiniAvatar = styled.img`
+  display: inline;
+  width: 40px;
+  border-radius: 20px;
+  transition: 0.2s linear all;
+  border: 2px solid ${COLORS.tertiaryAccentClr};
+  &:hover {
+    border: 2px solid ${COLORS.secondaryAccentClr};
+  }
+`;
 
 const Logo = styled.h1`
   font-weight: 400;
