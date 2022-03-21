@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link, useHistory } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 
 import { COLORS, SIZES } from "../constants";
@@ -10,7 +10,6 @@ import { FaceContext } from "./FaceContext";
 const Header = () => {
   const { signedInUser } = useContext(FaceContext);
   const history = useHistory();
-  // useEffect(() => {}, [signedInUser]);
 
   return (
     <Wrapper>

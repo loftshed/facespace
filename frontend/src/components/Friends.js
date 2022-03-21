@@ -45,7 +45,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: fit-content;
+  width: 100%;
 `;
 
 const FriendCard = styled.div`
@@ -70,7 +70,8 @@ const FriendsHeading = styled.h3`
 `;
 const FriendsList = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 15px;
+  justify-content: space-evenly;
 `;
 
 const FriendProfilePic = styled.img`

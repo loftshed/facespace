@@ -8,10 +8,10 @@ import Friends from "./Friends";
 const Profile = () => {
   const { currentProfile, setCurrentProfile, loadMembers, signedInUser } =
     useContext(FaceContext);
-  const { name, friends, avatarUrl } = currentProfile;
+  const { name, friends, avatarUrl, id } = currentProfile;
   const params = useParams();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     loadMembers();
   }, []);
 
@@ -29,16 +29,34 @@ const Profile = () => {
   }, [setCurrentProfile, params.user]);
   /// TODO, get this all centered properly
 
+  // const numMutualFriends = signedInUser.friends.filter((fr) =>
+  //   friends.includes(fr)
+  // ).length;
+
   return (
     <Wrapper>
       <Background src="/images/facespace_bg.jpg" />
       <ProfileContainer>
         <div style={{ display: "flex" }}>
           <ProfilePic src={avatarUrl} />
-          <Name>
-            {name}
-            {friends && <FriendCount>{friends.length} friends</FriendCount>}
-          </Name>
+          <DetailsContainer>
+            <h2>
+              {name}
+              <FriendCount>{friends?.length} friends</FriendCount>
+            </h2>
+            {/* {friends && (
+              <>
+                <p>({numMutualFriends} mutual)</p>
+              </>
+            )}
+            {signedInUser.friends.includes(id) && (
+              <span
+                style={{ fontSize: "14px", fontWeight: "400", color: "white" }}
+              >
+                You are friends
+              </span>
+            )} */}
+          </DetailsContainer>
         </div>
         <Friends />
       </ProfileContainer>
@@ -59,12 +77,11 @@ const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  width: 600px;
+  width: 675px;
   gap: 25px;
 `;
 
 const FriendCount = styled.p`
-  text-align: right;
   font-size: 14px;
   color: ${COLORS.tertiaryAccentClr};
 `;
@@ -76,14 +93,24 @@ const Background = styled.img`
   object-position: center;
 `;
 const ProfilePic = styled.img`
+  position: absolute;
   width: 250px;
   /* border: 5px solid ${COLORS.secondaryAccentClr}; */
-  box-shadow: 0px 0px 0px 10px ${COLORS.backgroundClr};
+  box-shadow: 0px 0px 0px 5px ${COLORS.backgroundClr};
   border-radius: 200px;
   /* margin-left: 5px; */
   margin-top: -125px;
 `;
 
-const Name = styled.h2`
-  margin: 10px 20px;
+const DetailsContainer = styled.div`
+  display: flex;
+  gap: 5px;
+  height: 100px;
+  flex-direction: column;
+  /* margin: 20px 20px 0px -40px; */
+  text-align: right;
+  width: 100%;
+  background-color: ${COLORS.primaryAccentClr};
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 `;
