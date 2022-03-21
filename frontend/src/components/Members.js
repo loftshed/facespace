@@ -76,13 +76,15 @@ const PicGrid = styled.div`
 const Member = styled.div`
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   border: solid 2px ${COLORS.primaryAccentClr};
   border-radius: 2px;
   width: 125px;
-  height: 125px;
+  height: 150px;
   transition: all 0.2s;
+  background-color: ${COLORS.tertiaryAccentClr};
   &:hover {
-    transform: scale(99%);
+    background-color: ${COLORS.secondaryAccentClr};
     border: solid 3px ${COLORS.primaryAccentClr};
   }
 `;
