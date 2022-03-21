@@ -5,6 +5,15 @@ const { findUser, findUserIndex, sendResponse } = require("./utils");
 // POST super secure sign in credentials
 // TODO validate credentials (one name, no numbers, etc)
 const handleSignIn = (req, res) => {
+  console.log(req.body);
+  if (
+    req.body.user.indexOf(" ") > -1 ||
+    req.body.user.indexOf(`\d`) > -1 ||
+    req.body.user === ""
+  ) {
+    console.log("Error: Invalid character or empty string submitted.");
+    return;
+  }
   const user = res.locals.users.find((el) => {
     return el.name.toLowerCase() === req.body.user.toLowerCase();
   });

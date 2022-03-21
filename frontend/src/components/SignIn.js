@@ -33,7 +33,7 @@ const SignIn = () => {
       });
       handleSignIn(await response.json());
     } catch (err) {
-      console.log(await err.json());
+      console.log(err);
     }
   };
 

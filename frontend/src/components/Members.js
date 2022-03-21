@@ -27,7 +27,11 @@ const Members = () => {
               ).length;
               return (
                 <StyledLink key={id} to={`/user/${id}`}>
-                  <Member>
+                  <Member
+                    style={{
+                      height: signedInUser.id ? "245px" : "215px",
+                    }}
+                  >
                     <ProfilePic alt={name} src={avatarUrl} />
                     <Banner>
                       <div>
@@ -89,6 +93,7 @@ const Wrapper = styled.div`
   display: flex;
   width: fit-content;
   margin-top: 70px;
+  margin-bottom: 30px;
 `;
 
 const StyledLink = styled(Link)`
@@ -143,7 +148,6 @@ const Member = styled.div`
   border: solid 2px ${COLORS.blackestClr};
   border-radius: 5px;
   width: 170px;
-  height: 245px;
   transition: all 0.15s;
   background-color: ${COLORS.blackestClr};
   &:hover {

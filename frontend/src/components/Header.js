@@ -82,6 +82,7 @@ const Wrapper = styled.div`
   width: 100%;
   user-select: none;
   z-index: 5;
+  box-shadow: 0px 2px 5px 0px black;
 `;
 
 const Logo = styled.h1`
@@ -105,7 +106,7 @@ const DropDown = styled.div`
   font-size: 18px;
   font-weight: 400;
   width: fit-content;
-  top: 47px;
+  top: 45px;
   right: 2px;
   background-color: ${COLORS.primaryAccentClr};
   /* box-shadow: 0px 3px 5px 0px black; */
