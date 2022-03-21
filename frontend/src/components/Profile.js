@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { COLORS, SIZES } from "../constants";
@@ -10,11 +10,10 @@ const Profile = () => {
     useContext(FaceContext);
   const { name, friends, avatarUrl, id } = currentProfile;
   const params = useParams();
-  let numMutualFriends = 0;
 
   useEffect(() => {
     loadMembers();
-  }, []);
+  }, [loadMembers]);
 
   useEffect(() => {
     (async () => {
@@ -33,14 +32,6 @@ const Profile = () => {
     return null;
   }
 
-  /// TODO, get this all centered properly
-
-  console.log(signedInUser);
-
-  // numMutualFriends = signedInUser.friends.filter((fr) =>
-  //   friends.includes(fr)
-  // ).length;
-
   return (
     <Wrapper>
       <Background src="/images/facespace_bg.jpg" />
@@ -52,42 +43,59 @@ const Profile = () => {
               <span>{name}</span>
               <FriendCount>
                 {friends?.length} friends
-                {numMutualFriends > 0 && (
-                  <MutualFriends>{numMutualFriends} mutual</MutualFriends>
+                {!signedInUser.name ? (
+                  <></>
+                ) : (
+                  <>
+                    {signedInUser.friends.filter((fr) => friends.includes(fr))
+                      .length > 0 && (
+                      <MutualFriends>
+                        {
+                          signedInUser.friends.filter((fr) =>
+                            friends.includes(fr)
+                          ).length
+                        }{" "}
+                        mutual
+                      </MutualFriends>
+                    )}{" "}
+                  </>
                 )}
               </FriendCount>
             </Name>
+            {signedInUser.name && (
+              <>
+                {signedInUser.friends?.includes(id) && (
+                  <span
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: "400",
+                      color: "white",
+                      height: "fit-content",
+                      padding: "6px 10px 4px 10px",
+                      borderRadius: "20px",
+                      backgroundColor: `${COLORS.blackestClr}`,
+                    }}
+                  >
+                    Friend
+                  </span>
+                )}
 
-            {signedInUser.friends?.includes(id) && (
-              <span
-                style={{
-                  fontSize: "14px",
-                  fontWeight: "400",
-                  color: "white",
-                  height: "fit-content",
-                  padding: "6px 10px 4px 10px",
-                  borderRadius: "20px",
-                  backgroundColor: `${COLORS.blackestClr}`,
-                }}
-              >
-                Friend
-              </span>
-            )}
-
-            {!signedInUser.friends?.includes(id) && signedInUser.id !== id && (
-              <span
-                style={{
-                  fontSize: "14px",
-                  fontWeight: "400",
-                  color: "white",
-                  height: "fit-content",
-                  padding: "6px 10px 4px 10px",
-                  borderRadius: "20px",
-                  backgroundColor: `${COLORS.blackestClr}`,
-                }}
-              >
-                Add Friend
-              </span>
+                {!signedInUser.friends?.includes(id) && signedInUser.id !== id && (
+                  <span
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: "400",
+                      color: "white",
+                      height: "fit-content",
+                      padding: "6px 10px 4px 10px",
+                      borderRadius: "20px",
+                      backgroundColor: `${COLORS.blackestClr}`,
+                    }}
+                  >
+                    Add Friend
+                  </span>
+                )}
+              </>
             )}
           </DetailsContainer>
         </div>

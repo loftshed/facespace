@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { MdPersonAdd, MdPerson } from "react-icons/md";
 
@@ -9,7 +9,7 @@ import { FaceContext } from "./FaceContext";
 const Members = () => {
   const { members, signedInUser } = useContext(FaceContext);
   const { friends } = signedInUser;
-  const history = useHistory();
+  // const history = useHistory();
   console.log(friends);
 
   return (
@@ -66,6 +66,7 @@ const Members = () => {
 
                             {friends?.includes(id) && (
                               <AddButton
+                                disabled={true}
                                 style={{
                                   color: `${COLORS.tertiaryAccentClr}`,
                                   cursor: "",

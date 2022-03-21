@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, useCallback, createContext } from "react";
 export const FaceContext = createContext(null);
 
 export const FaceProvider = ({ children }) => {
@@ -6,15 +6,17 @@ export const FaceProvider = ({ children }) => {
   const [currentProfile, setCurrentProfile] = useState([]);
   const [signedInUser, setSignedInUser] = useState({});
 
-  const loadMembers = async () => {
-    try {
-      const response = await fetch("/api/users/", {});
-      const jsonifiedResponse = await response.json();
-      setMembers(jsonifiedResponse.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const loadMembers = useCallback(() => {
+    (async () => {
+      try {
+        const response = await fetch("/api/users/", {});
+        const jsonifiedResponse = await response.json();
+        setMembers(jsonifiedResponse.data);
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, []);
 
   return (
     <FaceContext.Provider

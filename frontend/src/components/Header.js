@@ -17,7 +17,16 @@ const Header = () => {
   return (
     <Wrapper>
       <Logo>
-        <StyledLink to="/">Facespace</StyledLink>
+        <StyledLink
+          to="/"
+          onClick={() => {
+            if (showMenu) {
+              setShowMenu(!showMenu);
+            }
+          }}
+        >
+          Facespace
+        </StyledLink>
       </Logo>
       {signedInUser.name ? (
         /// TODO move CSS into styled component
@@ -27,6 +36,9 @@ const Header = () => {
           <div style={{ display: "flex", gap: "1px", paddingLeft: "15px" }}>
             <MiniAvatar
               onClick={() => {
+                if (showMenu) {
+                  setShowMenu(!showMenu);
+                }
                 history.push(`/user/${signedInUser.id}`);
               }}
               src={signedInUser.avatarUrl}

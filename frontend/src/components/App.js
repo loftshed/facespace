@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { useContext, useMemo, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import GlobalStyles from "./GlobalStyles";
@@ -15,15 +15,14 @@ const App = () => {
   useEffect(() => {
     const persistedUser = localStorage.getItem("user");
     const jsonifiedPersistedUser = JSON.parse(persistedUser);
-
     if (jsonifiedPersistedUser) {
       setSignedInUser(jsonifiedPersistedUser);
     }
-  }, []);
+  }, [setSignedInUser]);
 
-  useMemo(() => {
-    return loadMembers();
-  }, []);
+  useEffect(() => {
+    loadMembers();
+  }, [loadMembers]);
 
   return (
     <BrowserRouter>
