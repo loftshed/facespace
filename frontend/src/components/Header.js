@@ -65,7 +65,9 @@ const WelcomeBack = styled.h3`
   // ^^^ really cheesing it with this, try to find better way
   display: flex;
   justify-content: center;
+  font-size: 20px;
   align-items: center;
+  text-shadow: 2px 1px 0px ${COLORS.backgroundClr};
 `;
 
 const MiniAvatar = styled.img`

@@ -10,6 +10,7 @@ const Profile = () => {
     useContext(FaceContext);
   const { name, friends, avatarUrl, id } = currentProfile;
   const params = useParams();
+  let numMutualFriends = 0;
 
   useLayoutEffect(() => {
     loadMembers();
@@ -29,9 +30,13 @@ const Profile = () => {
   }, [setCurrentProfile, params.user]);
   /// TODO, get this all centered properly
 
-  // const numMutualFriends = signedInUser.friends.filter((fr) =>
-  //   friends.includes(fr)
-  // ).length;
+  console.log(signedInUser);
+
+  if (signedInUser) {
+    // numMutualFriends = signedInUser.friends.filter((fr) =>
+    //   friends.includes(fr)
+    // ).length;
+  }
 
   return (
     <Wrapper>
@@ -40,15 +45,16 @@ const Profile = () => {
         <div style={{ display: "flex" }}>
           <ProfilePic src={avatarUrl} />
           <DetailsContainer>
-            <h2>
+            <Name>
               {name}
-              <FriendCount>{friends?.length} friends</FriendCount>
-            </h2>
-            {/* {friends && (
-              <>
-                <p>({numMutualFriends} mutual)</p>
-              </>
-            )}
+              <FriendCount>
+                {friends?.length} friends
+                {numMutualFriends > 0 && (
+                  <MutualFriends>{numMutualFriends} mutual</MutualFriends>
+                )}
+              </FriendCount>
+            </Name>
+            {/*
             {signedInUser.friends.includes(id) && (
               <span
                 style={{ fontSize: "14px", fontWeight: "400", color: "white" }}
@@ -87,6 +93,16 @@ const FriendCount = styled.p`
   color: ${COLORS.tertiaryAccentClr};
 `;
 
+const MutualFriends = styled.span`
+  color: white;
+  font-weight: 300;
+  font-size: 14px;
+  background-color: ${COLORS.blackestClr};
+  padding: 1px 5px;
+  margin-left: 5px;
+  border-radius: 3px;
+`;
+
 const Background = styled.img`
   width: 100%;
   max-height: 300px;
@@ -115,4 +131,8 @@ const DetailsContainer = styled.div`
   background-color: ${COLORS.primaryAccentClr};
   border-radius: 10px;
   box-shadow: 0px 1px 5px black;
+`;
+
+const Name = styled.h2`
+  text-shadow: 2px 1px 0px ${COLORS.backgroundClr};
 `;
