@@ -24,9 +24,7 @@ const Members = () => {
                 <StyledLink key={id} to={`/user/${id}`}>
                   <Member>
                     <ProfilePic alt={name} src={avatarUrl} />
-                    {friends.includes(id) && (
-                      <FriendBanner>Friend</FriendBanner>
-                    )}
+                    <Banner>{friends.includes(id) && "You are friends"}</Banner>
                   </Member>
                 </StyledLink>
               );
@@ -41,7 +39,6 @@ const Members = () => {
 export default Members;
 
 const Wrapper = styled.div`
-  background-color: ${COLORS.blackestClr};
   border-radius: 10px;
   padding: 25px;
   display: flex;
@@ -75,29 +72,33 @@ const PicGrid = styled.div`
 
 const Member = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;
   border: solid 2px ${COLORS.primaryAccentClr};
-  border-radius: 2px;
-  width: 125px;
-  height: 150px;
-  transition: all 0.2s;
-  background-color: ${COLORS.tertiaryAccentClr};
+  border-radius: 5px;
+  width: 170px;
+  height: 250px;
+  transition: all 0.15s;
+  background-color: ${COLORS.blackestClr};
   &:hover {
-    background-color: ${COLORS.secondaryAccentClr};
-    border: solid 3px ${COLORS.primaryAccentClr};
+    box-shadow: 0px 0px 0px 1.5px ${COLORS.tertiaryAccentClr};
   }
+  box-shadow: 0px 2px 5px 0px black;
 `;
 
-const ProfilePic = styled.img``;
+const ProfilePic = styled.img`
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+`;
 
-const FriendBanner = styled.span`
-  position: absolute;
+const Banner = styled.div`
   font-size: 15px;
-  margin-top: 100px;
-  text-align: center;
-  padding: 2px 10px;
-  border-radius: 20px;
-  background-color: ${COLORS.backgroundClr};
+  width: 95%;
+  height: 90%;
+  margin: 5px 10px;
+  padding: 5px 5px;
+  border-radius: 3px;
+  background-color: ${COLORS.primaryAccentClr};
   color: ${COLORS.tertiaryAccentClr};
 `;
