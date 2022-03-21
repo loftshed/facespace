@@ -22,7 +22,7 @@ const Members = () => {
           <PicGrid>
             {members.map((el) => {
               const { id, name, avatarUrl } = el;
-              const numMutualFriends = friends.filter((fr) =>
+              const numMutualFriends = friends?.filter((fr) =>
                 el.friends.includes(fr)
               ).length;
               return (
@@ -32,7 +32,9 @@ const Members = () => {
                     <Banner>
                       <div>
                         <h3>{name}</h3>
-                        <span>{friends.includes(id) && "You are friends"}</span>
+                        <span>
+                          {friends?.includes(id) && "You are friends"}
+                        </span>
                       </div>
                       <div
                         style={{
@@ -42,20 +44,20 @@ const Members = () => {
                         }}
                       >
                         <MutualFriends>
-                          {numMutualFriends > 0 && (
+                          {numMutualFriends > 0 && signedInUser.id !== id && (
                             <>
                               {numMutualFriends} Mutual friend
                               {numMutualFriends > 1 ? "s" : ""}
                             </>
                           )}
                         </MutualFriends>
-                        {!friends.includes(id) && (
+                        {!friends?.includes(id) && (
                           <AddButton>
                             <AddBtnIcon />
                           </AddButton>
                         )}
 
-                        {friends.includes(id) && (
+                        {friends?.includes(id) && (
                           <AddButton
                             style={{ color: `${COLORS.tertiaryAccentClr}` }}
                           >

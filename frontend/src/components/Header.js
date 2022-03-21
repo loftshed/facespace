@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link, useHistory } from "react-router-dom";
 import { useContext, useState } from "react";
-import { MdOutlineArrowDropDownCircle } from "react-icons/md";
+import { MdOutlineArrowDropDownCircle, MdLogout } from "react-icons/md";
 
 import { COLORS, SIZES } from "../constants";
 import Button from "./Button";
@@ -37,21 +37,25 @@ const Header = () => {
                 setShowMenu(!showMenu);
               }}
             />
-            <DropDown style={{ opacity: showMenu ? "100%" : "0%" }}>
-              <button
+            <DropDown
+              style={{
+                opacity: showMenu ? "100%" : "0%",
+                transform: !showMenu ? "translateY(-10px)" : "",
+              }}
+            >
+              <LogoutButton
+                onClick={() => {
+                  localStorage.clear();
+                  setShowMenu(!showMenu);
+                }}
                 style={{
-                  padding: "none",
-                  color: "inherit",
-                  backgroundColor: "inherit",
-                  borderStyle: "solid",
-                  borderRadius: "20px",
-                  width: "100px",
                   cursor: showMenu ? "pointer" : "",
                 }}
                 disabled={!showMenu}
               >
                 Log Out
-              </button>
+                {MdLogout()}
+              </LogoutButton>
             </DropDown>
           </div>
         </WelcomeBack>
@@ -73,14 +77,46 @@ const DropDown = styled.div`
   height: fit-content;
   font-size: 18px;
   font-weight: 400;
-  width: 120px;
+  width: fit-content;
   top: 47px;
-  right: 4px;
+  right: 2px;
   background-color: ${COLORS.primaryAccentClr};
   /* box-shadow: 0px 3px 5px 0px black; */
   padding: 10px 10px 8px 10px;
   border-radius: 5px;
   transition: 0.1s ease-in all;
+  z-index: 1;
+`;
+
+const DownIcon = styled(MdOutlineArrowDropDownCircle)`
+  transition: 0.15s linear all;
+  color: ${COLORS.tertiaryAccentClr};
+  width: 48px;
+  height: 48px;
+  transform: translateY(-4px);
+  &:hover {
+    color: ${COLORS.secondaryAccentClr};
+  }
+  cursor: pointer;
+  z-index: 5;
+`;
+
+const LogoutButton = styled.button`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  color: inherit;
+  padding: 2px;
+  text-shadow: 1px 1px 0px ${COLORS.backgroundClr};
+  background: none;
+  border-style: none;
+  border-radius: 20px;
+  width: fit-content;
+  transition: 0.05s linear all;
+  &:hover {
+    background-color: ${COLORS.primaryAccentClr};
+    text-decoration: 2px solid underline ${COLORS.tertiaryAccentClr};
+  }
 `;
 
 const Wrapper = styled.div`
@@ -92,6 +128,7 @@ const Wrapper = styled.div`
   height: ${SIZES.headerHeight};
   width: 100%;
   user-select: none;
+  z-index: 5;
 
   /* box-shadow: inset 0px 0px 5px 0px ${COLORS.blackestClr}; */
   /* border-bottom: 3px solid ${COLORS.secondaryAccentClr}; */
@@ -122,18 +159,6 @@ const MiniAvatar = styled.img`
   &:hover {
     border: 2px solid ${COLORS.secondaryAccentClr};
   }
-`;
-
-const DownIcon = styled(MdOutlineArrowDropDownCircle)`
-  transition: 0.15s linear all;
-  color: ${COLORS.tertiaryAccentClr};
-  width: 48px;
-  height: 48px;
-  transform: translateY(-4px);
-  &:hover {
-    color: ${COLORS.secondaryAccentClr};
-  }
-  cursor: pointer;
 `;
 
 const Logo = styled.h1`
