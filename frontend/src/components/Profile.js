@@ -33,11 +33,9 @@ const Profile = () => {
 
   console.log(signedInUser);
 
-  if (signedInUser) {
-    // numMutualFriends = signedInUser.friends.filter((fr) =>
-    //   friends.includes(fr)
-    // ).length;
-  }
+  // numMutualFriends = signedInUser.friends.filter((fr) =>
+  //   friends.includes(fr)
+  // ).length;
 
   return (
     <Wrapper>
@@ -55,14 +53,14 @@ const Profile = () => {
                 )}
               </FriendCount>
             </Name>
-            {/*             
-            {signedInUser.friends.includes(id) && (
+
+            {signedInUser.friends?.includes(id) && (
               <span
                 style={{ fontSize: "14px", fontWeight: "400", color: "white" }}
               >
                 You are friends
               </span>
-            )} */}
+            )}
           </DetailsContainer>
         </div>
         <Friends />

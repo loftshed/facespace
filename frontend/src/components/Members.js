@@ -5,14 +5,12 @@ import { MdPersonAdd, MdPerson } from "react-icons/md";
 
 import { COLORS } from "../constants";
 import { FaceContext } from "./FaceContext";
-import Button from "./Button";
 
 const Members = () => {
   const { members, signedInUser } = useContext(FaceContext);
   const { friends } = signedInUser;
+  const history = useHistory();
   console.log(friends);
-
-  //TODO modify this shiz to use CSS grid?
 
   return (
     <Wrapper>
@@ -25,8 +23,13 @@ const Members = () => {
               const numMutualFriends = friends?.filter((fr) =>
                 el.friends.includes(fr)
               ).length;
+              const isFriend = friends?.includes(id);
               return (
-                <StyledLink key={id} to={`/user/${id}`}>
+                <StyledLink
+                  key={id}
+                  to={`/user/${id}`}
+                  style={{ order: isFriend ? "-1" : "0" }}
+                >
                   <Member
                     style={{
                       height: signedInUser.id ? "245px" : "215px",
@@ -36,9 +39,7 @@ const Members = () => {
                     <Banner>
                       <div>
                         <h3>{name}</h3>
-                        <span>
-                          {friends?.includes(id) && "You are friends"}
-                        </span>
+                        <span>{isFriend && "You are friends"}</span>
                       </div>
                       <div
                         style={{
@@ -65,7 +66,10 @@ const Members = () => {
 
                             {friends?.includes(id) && (
                               <AddButton
-                                style={{ color: `${COLORS.tertiaryAccentClr}` }}
+                                style={{
+                                  color: `${COLORS.tertiaryAccentClr}`,
+                                  cursor: "",
+                                }}
                               >
                                 <FriendIcon />
                               </AddButton>
