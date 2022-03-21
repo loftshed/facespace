@@ -8,6 +8,7 @@
 
 export const SIZES = {
   headerHeight: "60px",
+  footerHeight: "35px",
 };
 
 export const COLORS = {

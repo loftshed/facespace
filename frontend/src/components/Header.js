@@ -71,6 +71,32 @@ const Header = () => {
 
 export default Header;
 
+const Wrapper = styled.div`
+  position: fixed;
+  background-color: ${COLORS.primaryAccentClr};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 60px;
+  height: ${SIZES.headerHeight};
+  width: 100%;
+  user-select: none;
+  z-index: 5;
+`;
+
+const Logo = styled.h1`
+  font-weight: 400;
+  padding: 10px;
+  text-shadow: 2px 1px 0px ${COLORS.backgroundClr};
+  transition: 0.05s linear all;
+  &:hover {
+    transform: rotate(-1deg);
+  }
+  &:active {
+    transform: rotate(1deg);
+  }
+`;
+
 const DropDown = styled.div`
   position: absolute;
   text-align: center;
@@ -120,21 +146,6 @@ const LogoutButton = styled.button`
   }
 `;
 
-const Wrapper = styled.div`
-  background-color: ${COLORS.primaryAccentClr};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 60px;
-  height: ${SIZES.headerHeight};
-  width: 100%;
-  user-select: none;
-  z-index: 5;
-
-  /* box-shadow: inset 0px 0px 5px 0px ${COLORS.blackestClr}; */
-  /* border-bottom: 3px solid ${COLORS.secondaryAccentClr}; */
-`;
-
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: ${COLORS.headingsClr};
@@ -159,18 +170,5 @@ const MiniAvatar = styled.img`
   border: 2px solid ${COLORS.tertiaryAccentClr};
   &:hover {
     border: 2px solid ${COLORS.secondaryAccentClr};
-  }
-`;
-
-const Logo = styled.h1`
-  font-weight: 400;
-  padding: 10px;
-  text-shadow: 2px 1px 0px ${COLORS.backgroundClr};
-  transition: 0.05s linear all;
-  &:hover {
-    transform: rotate(-1deg);
-  }
-  &:active {
-    transform: rotate(1deg);
   }
 `;

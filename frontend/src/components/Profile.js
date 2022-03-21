@@ -77,8 +77,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
   width: 100%;
-  height: calc(100vh - ${SIZES.headerHeight});
+  /* height: calc(100vh - ${SIZES.headerHeight}); */
 `;
 const ProfileContainer = styled.div`
   display: flex;

@@ -88,7 +88,7 @@ const Wrapper = styled.div`
   padding: 25px;
   display: flex;
   width: fit-content;
-  margin-top: 20px;
+  margin-top: 70px;
 `;
 
 const StyledLink = styled(Link)`

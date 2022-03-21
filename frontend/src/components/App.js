@@ -6,6 +6,7 @@ import GlobalStyles from "./GlobalStyles";
 import Home from "./Home";
 import SignIn from "./SignIn";
 import Profile from "./Profile";
+import Footer from "./Footer";
 import { FaceContext } from "./FaceContext";
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
             <Profile />
           </Route>
         </Switch>
+        <Footer />
       </Content>
     </BrowserRouter>
   );
