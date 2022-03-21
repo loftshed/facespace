@@ -5,12 +5,20 @@ import { MdPersonAdd, MdPerson } from "react-icons/md";
 
 import { COLORS } from "../constants";
 import { FaceContext } from "./FaceContext";
+import LoadingSpinner from "./etc/LoadingSpinner";
 
 const Members = () => {
   const { members, signedInUser } = useContext(FaceContext);
   const { friends } = signedInUser;
   // const history = useHistory();
-  console.log(friends);
+
+  // if (!members) {
+  //   return (
+  //     <div>
+  //       <LoadingSpinner />
+  //     </div>
+  //   );
+  // }
 
   return (
     <Wrapper>
