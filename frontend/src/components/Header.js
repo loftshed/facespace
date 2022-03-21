@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link, useHistory } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 
 import { COLORS, SIZES } from "../constants";
@@ -10,6 +10,9 @@ import { FaceContext } from "./FaceContext";
 const Header = () => {
   const { signedInUser } = useContext(FaceContext);
   const history = useHistory();
+  const [showMenu, setShowMenu] = useState(false);
+
+  ///////////// WORK ON DROP DOWN MENU TO MAKE LOGOUT POSSIBLE
 
   return (
     <Wrapper>
@@ -29,7 +32,27 @@ const Header = () => {
               src={signedInUser.avatarUrl}
             />
 
-            <DownIcon />
+            <DownIcon
+              onClick={() => {
+                setShowMenu(!showMenu);
+              }}
+            />
+            <DropDown style={{ opacity: showMenu ? "100%" : "0%" }}>
+              <button
+                style={{
+                  padding: "none",
+                  color: "inherit",
+                  backgroundColor: "inherit",
+                  borderStyle: "solid",
+                  borderRadius: "20px",
+                  width: "100px",
+                  cursor: showMenu ? "pointer" : "",
+                }}
+                disabled={!showMenu}
+              >
+                Log Out
+              </button>
+            </DropDown>
           </div>
         </WelcomeBack>
       ) : (
@@ -43,6 +66,23 @@ const Header = () => {
 
 export default Header;
 
+const DropDown = styled.div`
+  position: absolute;
+  text-align: center;
+  color: white;
+  height: fit-content;
+  font-size: 18px;
+  font-weight: 400;
+  width: 120px;
+  top: 47px;
+  right: 4px;
+  background-color: ${COLORS.primaryAccentClr};
+  /* box-shadow: 0px 3px 5px 0px black; */
+  padding: 10px 10px 8px 10px;
+  border-radius: 5px;
+  transition: 0.1s ease-in all;
+`;
+
 const Wrapper = styled.div`
   background-color: ${COLORS.primaryAccentClr};
   display: flex;
@@ -51,6 +91,8 @@ const Wrapper = styled.div`
   padding: 0px 60px;
   height: ${SIZES.headerHeight};
   width: 100%;
+  user-select: none;
+
   /* box-shadow: inset 0px 0px 5px 0px ${COLORS.blackestClr}; */
   /* border-bottom: 3px solid ${COLORS.secondaryAccentClr}; */
 `;

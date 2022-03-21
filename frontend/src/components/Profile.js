@@ -28,6 +28,7 @@ const Profile = () => {
       }
     })();
   }, [setCurrentProfile, params.user]);
+
   /// TODO, get this all centered properly
 
   console.log(signedInUser);
@@ -54,7 +55,7 @@ const Profile = () => {
                 )}
               </FriendCount>
             </Name>
-            {/*
+            {/*             
             {signedInUser.friends.includes(id) && (
               <span
                 style={{ fontSize: "14px", fontWeight: "400", color: "white" }}
