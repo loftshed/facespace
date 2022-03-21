@@ -175,6 +175,6 @@ const DetailsContainer = styled.div`
 const Name = styled.h2`
   display: flex;
   flex-direction: column;
-  ''text-shadow: 2px 1px 0px ${COLORS.backgroundClr};
+  text-shadow: 2px 1px 0px ${COLORS.backgroundClr};
   gap: 2px;
 `;

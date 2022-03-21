@@ -121,11 +121,12 @@ const Heading = styled.h3`
 const PicGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 25%);
-  gap: 5px;
-  column-gap: 10px;
+  /* gap: 5px; */
+  column-gap: 7.5px;
+  row-gap: 15px;
   /// this margin shit is dumb as hell
   /// but there's other shit I want to do before tmw :)
-  margin-left: -10px;
+  margin-left: -22px;
   width: fit-content;
   align-content: center;
   justify-items: center;
