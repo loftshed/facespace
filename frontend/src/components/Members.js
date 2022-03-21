@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { MdPersonAdd, MdPerson } from "react-icons/md";
@@ -10,7 +10,7 @@ const Members = () => {
   const { members, signedInUser, changeFriendStatus, loadMembers } =
     useContext(FaceContext);
   const { friends } = signedInUser;
-  // const history = useHistory();
+  // useEffect(() => {}, []);
 
   return (
     <Wrapper>

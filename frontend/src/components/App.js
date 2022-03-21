@@ -17,6 +17,9 @@ const App = () => {
     const persistedUser = localStorage.getItem("user");
     const jsonifiedPersistedUser = JSON.parse(persistedUser);
     if (jsonifiedPersistedUser) {
+      // members.find((el) => {
+      //   el.id === jsonifiedPersistedUser.id;
+      // });
       setSignedInUser(jsonifiedPersistedUser);
     }
   }, [setSignedInUser]);

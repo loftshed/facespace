@@ -6,10 +6,17 @@ import { FaceContext } from "./FaceContext";
 import Friends from "./Friends";
 
 const Profile = () => {
-  const { currentProfile, setCurrentProfile, loadMembers, signedInUser } =
-    useContext(FaceContext);
+  const {
+    currentProfile,
+    setCurrentProfile,
+    loadMembers,
+    signedInUser,
+    changeFriendStatus,
+  } = useContext(FaceContext);
   const { name, friends, avatarUrl, id } = currentProfile;
   const params = useParams();
+
+  console.log(friends);
 
   useLayoutEffect(() => {
     loadMembers();
@@ -71,8 +78,18 @@ const Profile = () => {
                   </IsFriend>
                 )}
 
-                {!signedInUser.friends?.includes(id) &&
-                  signedInUser.id !== id && <AddButton>Add Friend</AddButton>}
+                {!signedInUser.friends?.includes(id) && signedInUser.id !== id && (
+                  <AddButton
+                    onClick={(ev) => {
+                      ev.preventDefault();
+                      changeFriendStatus({
+                        newFriends: [id, signedInUser.id],
+                      });
+                    }}
+                  >
+                    Add Friend
+                  </AddButton>
+                )}
               </>
             )}
           </DetailsContainer>
