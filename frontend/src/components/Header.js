@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useContext, useEffect } from "react";
+import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 
 import { COLORS, SIZES } from "../constants";
 import Button from "./Button";
@@ -8,6 +9,7 @@ import { FaceContext } from "./FaceContext";
 
 const Header = () => {
   const { signedInUser } = useContext(FaceContext);
+  const history = useHistory();
   // useEffect(() => {}, [signedInUser]);
 
   return (
@@ -18,10 +20,18 @@ const Header = () => {
       {signedInUser.name ? (
         /// TODO move CSS into styled component
         <WelcomeBack>
-          <p>Welcome back, {signedInUser.name}!</p>
-          <StyledLink to={`/user/${signedInUser.id}`}>
-            <MiniAvatar src={signedInUser.avatarUrl} />
-          </StyledLink>
+          <span>Welcome back, {signedInUser.name}!</span>
+
+          <div style={{ display: "flex", gap: "1px", paddingLeft: "15px" }}>
+            <MiniAvatar
+              onClick={() => {
+                history.push(`/user/${signedInUser.id}`);
+              }}
+              src={signedInUser.avatarUrl}
+            />
+
+            <DownIcon />
+          </div>
         </WelcomeBack>
       ) : (
         <Button type="button">
@@ -52,34 +62,35 @@ const StyledLink = styled(Link)`
 `;
 
 const WelcomeBack = styled.h3`
+  transform: translateY(4px);
+  // ^^^ really cheesing it with this, try to find better way
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 `;
 
-// const MiniText = styled.div`
-//   position: absolute;
-//   left: 132px;
-//   top: 30px;
-//   font-size: 12px;
-//   border-radius: 5px;
-
-//   padding: 5px 10px;
-//   text-decoration: none;
-//   background-color: ${COLORS.blackestClr};
-//   color: ${COLORS.headingsClr};
-// `;
-
 const MiniAvatar = styled.img`
-  display: inline;
+  height: 40px;
   width: 40px;
   border-radius: 20px;
-  transition: 0.2s linear all;
+  transition: 0.15s linear all;
+  cursor: pointer;
   border: 2px solid ${COLORS.tertiaryAccentClr};
   &:hover {
     border: 2px solid ${COLORS.secondaryAccentClr};
   }
+`;
+
+const DownIcon = styled(MdOutlineArrowDropDownCircle)`
+  transition: 0.15s linear all;
+  color: ${COLORS.tertiaryAccentClr};
+  width: 48px;
+  height: 48px;
+  transform: translateY(-4px);
+  &:hover {
+    color: ${COLORS.secondaryAccentClr};
+  }
+  cursor: pointer;
 `;
 
 const Logo = styled.h1`
