@@ -88,10 +88,12 @@ const Members = () => {
 export default Members;
 
 const Wrapper = styled.div`
+  display: flex;
   border-radius: 10px;
   padding: 25px;
-  display: flex;
-  width: fit-content;
+  width: 100%;
+  justify-content: center;
+
   margin-top: 70px;
   margin-bottom: 30px;
 `;
@@ -103,7 +105,6 @@ const StyledLink = styled(Link)`
 `;
 
 const Heading = styled.h3`
-  margin: 5px;
   width: 100%;
   border-bottom: 2px solid ${COLORS.secondaryAccentClr};
   margin-bottom: 10px;
@@ -112,12 +113,18 @@ const Heading = styled.h3`
   text-decoration-thickness: 2px;
   text-decoration-color: ${COLORS.secondaryAccentClr}; */
 `;
+
 const PicGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  gap: 5px;
+  /// this margin shit is dumb as hell
+  /// but there's other shit I want to do before tmw :)
+  margin-left: -10px;
   width: fit-content;
-  justify-content: space-around;
+  align-content: center;
+  justify-items: center;
+  justify-content: space-between;
 `;
 
 const MutualFriends = styled.span`

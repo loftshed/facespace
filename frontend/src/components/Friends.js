@@ -53,11 +53,14 @@ const FriendCard = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   height: 185px;
-  min-width: 150px;
+  width: 150px;
   background-color: ${COLORS.primaryAccentClr};
   color: ${COLORS.headingsClr};
   border-radius: 5px;
   box-shadow: 0px 1px 5px black;
+  &:hover {
+    box-shadow: 0px 0px 0px 1.5px ${COLORS.tertiaryAccentClr};
+  }
 `;
 
 const FriendName = styled.div`
@@ -70,9 +73,9 @@ const FriendsHeading = styled.h3`
   border-bottom: solid 2px ${COLORS.secondaryAccentClr}; ;
 `;
 const FriendsList = styled.div`
-  display: flex;
-  gap: 15px;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  justify-items: center;
 `;
 
 const FriendProfilePic = styled.img`
