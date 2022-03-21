@@ -7,8 +7,8 @@ import { FaceContext } from "./FaceContext";
 
 const Members = () => {
   const { members, signedInUser } = useContext(FaceContext);
-
-  console.log(signedInUser);
+  const { friends } = signedInUser;
+  console.log(friends);
 
   //TODO modify this shiz to use CSS grid?
 
@@ -19,9 +19,15 @@ const Members = () => {
           <Heading>All Facespace members</Heading>
           <PicGrid>
             {members.map((el) => {
+              const { id, name, avatarUrl } = el;
               return (
-                <StyledLink key={el.id} to={`/user/${el.id}`}>
-                  <ProfilePic alt={el.name} src={el.avatarUrl} />
+                <StyledLink key={id} to={`/user/${id}`}>
+                  <Member>
+                    <ProfilePic alt={name} src={avatarUrl} />
+                    {friends.includes(id) && (
+                      <FriendBanner>Friend</FriendBanner>
+                    )}
+                  </Member>
                 </StyledLink>
               );
             })}
@@ -46,6 +52,7 @@ const Wrapper = styled.div`
 const StyledLink = styled(Link)`
   margin: 0px;
   padding: 0px;
+  text-decoration: none;
 `;
 
 const Heading = styled.h3`
@@ -65,7 +72,10 @@ const PicGrid = styled.div`
   width: fit-content;
   justify-content: space-around;
 `;
-const ProfilePic = styled.img`
+
+const Member = styled.div`
+  display: flex;
+  justify-content: center;
   border: solid 2px ${COLORS.primaryAccentClr};
   border-radius: 2px;
   width: 125px;
@@ -75,4 +85,17 @@ const ProfilePic = styled.img`
     transform: scale(99%);
     border: solid 3px ${COLORS.primaryAccentClr};
   }
+`;
+
+const ProfilePic = styled.img``;
+
+const FriendBanner = styled.span`
+  position: absolute;
+  font-size: 15px;
+  margin-top: 100px;
+  text-align: center;
+  padding: 2px 10px;
+  border-radius: 20px;
+  background-color: ${COLORS.backgroundClr};
+  color: ${COLORS.tertiaryAccentClr};
 `;
