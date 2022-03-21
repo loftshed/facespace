@@ -57,6 +57,7 @@ const FriendCard = styled.div`
   background-color: ${COLORS.primaryAccentClr};
   color: ${COLORS.headingsClr};
   border-radius: 5px;
+  box-shadow: 0px 1px 5px black;
 `;
 
 const FriendName = styled.div`

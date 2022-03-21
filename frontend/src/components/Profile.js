@@ -98,19 +98,22 @@ const ProfilePic = styled.img`
   /* border: 5px solid ${COLORS.secondaryAccentClr}; */
   box-shadow: 0px 0px 0px 5px ${COLORS.backgroundClr};
   border-radius: 200px;
-  /* margin-left: 5px; */
-  margin-top: -125px;
+  margin-left: 25px;
+  margin-top: -155px;
 `;
 
 const DetailsContainer = styled.div`
   display: flex;
   gap: 5px;
-  height: 100px;
+  height: 150px;
   flex-direction: column;
+  margin-top: -30px;
   /* margin: 20px 20px 0px -40px; */
   text-align: right;
   width: 100%;
   background-color: ${COLORS.primaryAccentClr};
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px black;
+  /* border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; */
 `;
