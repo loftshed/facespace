@@ -1,9 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { MdPersonAdd } from "react-icons/md";
 
 import { COLORS } from "../constants";
 import { FaceContext } from "./FaceContext";
+import Button from "./Button";
 
 const Members = () => {
   const { members, signedInUser } = useContext(FaceContext);
@@ -20,11 +22,31 @@ const Members = () => {
           <PicGrid>
             {members.map((el) => {
               const { id, name, avatarUrl } = el;
+              const numMutualFriends = friends.filter((fr) =>
+                el.friends.includes(fr)
+              ).length;
               return (
                 <StyledLink key={id} to={`/user/${id}`}>
                   <Member>
                     <ProfilePic alt={name} src={avatarUrl} />
-                    <Banner>{friends.includes(id) && "You are friends"}</Banner>
+                    <Banner>
+                      <div>
+                        <h3>{name}</h3>
+                        <span>{friends.includes(id) && "You are friends"}</span>
+                      </div>
+                      <div
+                        style={{
+                          flexDirection: "row",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        {!friends.includes(id) && (
+                          <AddButton>
+                            <AddBtnIcon />
+                          </AddButton>
+                        )}
+                      </div>
+                    </Banner>
                   </Member>
                 </StyledLink>
               );
@@ -70,6 +92,18 @@ const PicGrid = styled.div`
   justify-content: space-around;
 `;
 
+const AddButton = styled.button`
+  align-self: flex-end;
+  color: ${COLORS.secondaryAccentClr};
+  background-color: ${COLORS.backgroundClr};
+  border-style: none;
+  padding: 3px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+const AddBtnIcon = styled(MdPersonAdd)``;
+
 const Member = styled.div`
   display: flex;
   flex-direction: column;
@@ -93,10 +127,13 @@ const ProfilePic = styled.img`
 `;
 
 const Banner = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   font-size: 15px;
   width: 100%;
   height: 100%;
-  padding: 5px 5px;
+  padding: 8px 4px 4px 4px;
   border-radius: 3px;
   background-color: ${COLORS.primaryAccentClr};
   color: ${COLORS.tertiaryAccentClr};
