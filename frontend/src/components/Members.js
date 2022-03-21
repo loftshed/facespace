@@ -7,7 +7,8 @@ import { COLORS } from "../constants";
 import { FaceContext } from "./FaceContext";
 
 const Members = () => {
-  const { members, signedInUser } = useContext(FaceContext);
+  const { members, signedInUser, changeFriendStatus, loadMembers } =
+    useContext(FaceContext);
   const { friends } = signedInUser;
   // const history = useHistory();
 
@@ -23,6 +24,7 @@ const Members = () => {
                 el.friends.includes(fr)
               ).length;
               const isFriend = friends?.includes(id);
+              const isYou = signedInUser?.id === id;
               return (
                 <StyledLink
                   key={id}
@@ -38,7 +40,10 @@ const Members = () => {
                     <Banner>
                       <div>
                         <h3>{name}</h3>
-                        <span>{isFriend && "You are friends"}</span>
+                        <span>
+                          {isFriend && "You are friends"}
+                          {isYou && "This is you"}
+                        </span>
                       </div>
                       <div
                         style={{
@@ -58,12 +63,20 @@ const Members = () => {
                         {signedInUser.id && (
                           <>
                             {!friends?.includes(id) && (
-                              <AddButton>
+                              <AddButton
+                                type="button"
+                                onClick={(ev) => {
+                                  ev.preventDefault();
+                                  changeFriendStatus({
+                                    newFriends: [id, signedInUser.id],
+                                  });
+                                }}
+                              >
                                 <AddBtnIcon />
                               </AddButton>
                             )}
 
-                            {friends?.includes(id) && (
+                            {/* {friends?.includes(id) && (
                               <AddButton
                                 disabled={true}
                                 style={{
@@ -73,7 +86,7 @@ const Members = () => {
                               >
                                 <FriendIcon />
                               </AddButton>
-                            )}
+                            )} */}
                           </>
                         )}
                       </div>
@@ -97,6 +110,7 @@ const Wrapper = styled.div`
   padding: 25px;
   width: 100%;
   justify-content: center;
+  user-select: none;
 
   margin-top: 70px;
   margin-bottom: 30px;
@@ -148,6 +162,9 @@ const AddButton = styled.button`
   padding: 3px 5px;
   border-radius: 5px;
   cursor: pointer;
+  &:hover {
+    background-color: ${COLORS.tertiaryAccentClr};
+  }
 `;
 
 const AddBtnIcon = styled(MdPersonAdd)``;

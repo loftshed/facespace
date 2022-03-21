@@ -18,6 +18,23 @@ export const FaceProvider = ({ children }) => {
     })();
   }, []);
 
+  const changeFriendStatus = async (data) => {
+    console.log(data);
+    try {
+      const response = await fetch("/api/friends", {
+        method: "PATCH",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const jsonifiedResponse = await response.json();
+      console.log(jsonifiedResponse);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <FaceContext.Provider
       value={{
@@ -28,6 +45,7 @@ export const FaceProvider = ({ children }) => {
         signedInUser,
         setSignedInUser,
         loadMembers,
+        changeFriendStatus,
       }}
     >
       {children}

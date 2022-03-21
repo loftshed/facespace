@@ -96,6 +96,7 @@ const deleteUser = (req, res) => {
 // PATCH. requires the ids of 2 people to make them friends
 // ids should be sent along as an array called newFriends in the body
 const handleFriends = (req, res) => {
+  console.log(req.body);
   const [userId_1, userId_2] = req.body.newFriends;
   const user_1 = findUser(res.locals.users, userId_1);
   const user_2 = findUser(res.locals.users, userId_2);

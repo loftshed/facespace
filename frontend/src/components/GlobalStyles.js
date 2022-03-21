@@ -20,6 +20,7 @@ export default createGlobalStyle`
 
     html, body {
         height: 100%;
+        user-select: none;
     }
 
     body {

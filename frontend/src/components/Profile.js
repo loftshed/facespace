@@ -66,36 +66,13 @@ const Profile = () => {
             {signedInUser.name && (
               <>
                 {signedInUser.friends?.includes(id) && (
-                  <span
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: "400",
-                      color: "white",
-                      height: "fit-content",
-                      padding: "6px 10px 4px 10px",
-                      borderRadius: "20px",
-                      backgroundColor: `${COLORS.blackestClr}`,
-                    }}
-                  >
+                  <IsFriend disabled={true} style={{ cursor: "" }}>
                     Friend
-                  </span>
+                  </IsFriend>
                 )}
 
-                {!signedInUser.friends?.includes(id) && signedInUser.id !== id && (
-                  <span
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: "400",
-                      color: "white",
-                      height: "fit-content",
-                      padding: "6px 10px 4px 10px",
-                      borderRadius: "20px",
-                      backgroundColor: `${COLORS.blackestClr}`,
-                    }}
-                  >
-                    Add Friend
-                  </span>
-                )}
+                {!signedInUser.friends?.includes(id) &&
+                  signedInUser.id !== id && <AddButton>Add Friend</AddButton>}
               </>
             )}
           </DetailsContainer>
@@ -170,6 +147,36 @@ const DetailsContainer = styled.div`
   background-color: ${COLORS.primaryAccentClr};
   border-radius: 10px;
   box-shadow: 0px 1px 5px black;
+`;
+
+const AddButton = styled.button`
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  height: fit-content;
+  padding: 6px 10px 4px 10px;
+  border-radius: 20px;
+  border-style: none;
+  background-color: ${COLORS.blackestClr};
+  cursor: pointer;
+  &:hover {
+    outline: 2px solid ${COLORS.tertiaryAccentClr};
+  }
+  &:active {
+    background-color: ${COLORS.secondaryAccentClr};
+    outline: 2px solid ${COLORS.tertiaryAccentClr};
+  }
+`;
+
+const IsFriend = styled.span`
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  height: fit-content;
+  padding: 6px 10px 4px 10px;
+  border-radius: 20px;
+  border-style: none;
+  background-color: ${COLORS.blackestClr};
 `;
 
 const Name = styled.h2`
