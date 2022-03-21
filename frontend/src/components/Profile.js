@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useLayoutEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { COLORS, SIZES } from "../constants";
@@ -15,7 +15,7 @@ const Profile = () => {
     loadMembers();
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     (async () => {
       try {
         const response = await fetch(`/api/users/${params.user}`, {});
