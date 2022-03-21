@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import Header from "./Header";
@@ -10,7 +10,8 @@ import Footer from "./Footer";
 import { FaceContext } from "./FaceContext";
 
 const App = () => {
-  const { loadMembers, setSignedInUser } = useContext(FaceContext);
+  const { loadMembers, setSignedInUser, signedInUser } =
+    useContext(FaceContext);
 
   useEffect(() => {
     const persistedUser = localStorage.getItem("user");
@@ -34,7 +35,7 @@ const App = () => {
             <Home />
           </Route>
           <Route path="/signin">
-            <SignIn />
+            {signedInUser.id ? <Redirect to="/" /> : <SignIn />}
           </Route>
           <Route path="/user/:user">
             <Profile />
