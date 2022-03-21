@@ -51,18 +51,22 @@ const Members = () => {
                             </>
                           )}
                         </MutualFriends>
-                        {!friends?.includes(id) && (
-                          <AddButton>
-                            <AddBtnIcon />
-                          </AddButton>
-                        )}
+                        {signedInUser.id && (
+                          <>
+                            {!friends?.includes(id) && (
+                              <AddButton>
+                                <AddBtnIcon />
+                              </AddButton>
+                            )}
 
-                        {friends?.includes(id) && (
-                          <AddButton
-                            style={{ color: `${COLORS.tertiaryAccentClr}` }}
-                          >
-                            <FriendIcon />
-                          </AddButton>
+                            {friends?.includes(id) && (
+                              <AddButton
+                                style={{ color: `${COLORS.tertiaryAccentClr}` }}
+                              >
+                                <FriendIcon />
+                              </AddButton>
+                            )}
+                          </>
                         )}
                       </div>
                     </Banner>

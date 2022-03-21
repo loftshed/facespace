@@ -9,8 +9,8 @@ import { FaceContext } from "./FaceContext";
 
 const Header = () => {
   const { signedInUser } = useContext(FaceContext);
-  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
+  const history = useHistory();
 
   ///////////// WORK ON DROP DOWN MENU TO MAKE LOGOUT POSSIBLE
 
@@ -47,6 +47,7 @@ const Header = () => {
                 onClick={() => {
                   localStorage.clear();
                   setShowMenu(!showMenu);
+                  window.location.reload(false);
                 }}
                 style={{
                   cursor: showMenu ? "pointer" : "",
