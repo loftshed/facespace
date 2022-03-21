@@ -75,7 +75,7 @@ const Member = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: solid 2px ${COLORS.primaryAccentClr};
+  border: solid 2px ${COLORS.blackestClr};
   border-radius: 5px;
   width: 170px;
   height: 250px;
@@ -94,9 +94,8 @@ const ProfilePic = styled.img`
 
 const Banner = styled.div`
   font-size: 15px;
-  width: 95%;
-  height: 90%;
-  margin: 5px 10px;
+  width: 100%;
+  height: 100%;
   padding: 5px 5px;
   border-radius: 3px;
   background-color: ${COLORS.primaryAccentClr};
