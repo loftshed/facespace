@@ -122,6 +122,7 @@ const PicGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 25%);
   gap: 5px;
+  column-gap: 10px;
   /// this margin shit is dumb as hell
   /// but there's other shit I want to do before tmw :)
   margin-left: -10px;

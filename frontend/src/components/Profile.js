@@ -12,11 +12,11 @@ const Profile = () => {
   const params = useParams();
   let numMutualFriends = 0;
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     loadMembers();
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     (async () => {
       try {
         const response = await fetch(`/api/users/${params.user}`, {});
@@ -28,6 +28,10 @@ const Profile = () => {
       }
     })();
   }, [setCurrentProfile, params.user]);
+
+  if (!currentProfile.name) {
+    return null;
+  }
 
   /// TODO, get this all centered properly
 
@@ -45,7 +49,7 @@ const Profile = () => {
           <ProfilePic src={avatarUrl} />
           <DetailsContainer>
             <Name>
-              {name}
+              <span>{name}</span>
               <FriendCount>
                 {friends?.length} friends
                 {numMutualFriends > 0 && (
@@ -56,9 +60,33 @@ const Profile = () => {
 
             {signedInUser.friends?.includes(id) && (
               <span
-                style={{ fontSize: "14px", fontWeight: "400", color: "white" }}
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "400",
+                  color: "white",
+                  height: "fit-content",
+                  padding: "6px 10px 4px 10px",
+                  borderRadius: "20px",
+                  backgroundColor: `${COLORS.blackestClr}`,
+                }}
               >
-                You are friends
+                Friend
+              </span>
+            )}
+
+            {!signedInUser.friends?.includes(id) && signedInUser.id !== id && (
+              <span
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "400",
+                  color: "white",
+                  height: "fit-content",
+                  padding: "6px 10px 4px 10px",
+                  borderRadius: "20px",
+                  backgroundColor: `${COLORS.blackestClr}`,
+                }}
+              >
+                Add Friend
               </span>
             )}
           </DetailsContainer>
@@ -123,10 +151,12 @@ const DetailsContainer = styled.div`
   display: flex;
   gap: 5px;
   height: 150px;
-  flex-direction: column;
+  /* flex-direction: column; */
+  justify-content: space-between;
   margin-top: -30px;
   padding-top: 20px;
   padding-left: 300px;
+  padding-right: 20px;
   width: 100%;
   background-color: ${COLORS.primaryAccentClr};
   border-radius: 10px;
@@ -134,5 +164,8 @@ const DetailsContainer = styled.div`
 `;
 
 const Name = styled.h2`
-  text-shadow: 2px 1px 0px ${COLORS.backgroundClr};
+  display: flex;
+  flex-direction: column;
+  ''text-shadow: 2px 1px 0px ${COLORS.backgroundClr};
+  gap: 2px;
 `;
