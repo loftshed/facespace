@@ -36,10 +36,16 @@ const Members = () => {
                       </div>
                       <div
                         style={{
+                          display: "flex",
                           flexDirection: "row",
                           justifyContent: "space-between",
                         }}
                       >
+                        <MutualFriends>
+                          {numMutualFriends > 0 && (
+                            <>{numMutualFriends} Mutual friends</>
+                          )}
+                        </MutualFriends>
                         {!friends.includes(id) && (
                           <AddButton>
                             <AddBtnIcon />
@@ -92,6 +98,13 @@ const PicGrid = styled.div`
   justify-content: space-around;
 `;
 
+const MutualFriends = styled.span`
+  color: white;
+  font-weight: 300;
+  font-size: 14px;
+  align-self: flex-end;
+`;
+
 const AddButton = styled.button`
   align-self: flex-end;
   color: ${COLORS.secondaryAccentClr};
@@ -112,7 +125,7 @@ const Member = styled.div`
   border: solid 2px ${COLORS.blackestClr};
   border-radius: 5px;
   width: 170px;
-  height: 250px;
+  height: 245px;
   transition: all 0.15s;
   background-color: ${COLORS.blackestClr};
   &:hover {
@@ -133,7 +146,7 @@ const Banner = styled.div`
   font-size: 15px;
   width: 100%;
   height: 100%;
-  padding: 8px 4px 4px 4px;
+  padding: 8px 6px 4px 6px;
   border-radius: 3px;
   background-color: ${COLORS.primaryAccentClr};
   color: ${COLORS.tertiaryAccentClr};
