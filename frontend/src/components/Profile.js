@@ -48,16 +48,17 @@ const Profile = () => {
                 ) : (
                   <>
                     {signedInUser.friends.filter((fr) => friends.includes(fr))
-                      .length > 0 && (
-                      <MutualFriends>
-                        {
-                          signedInUser.friends.filter((fr) =>
-                            friends.includes(fr)
-                          ).length
-                        }{" "}
-                        mutual
-                      </MutualFriends>
-                    )}{" "}
+                      .length > 0 &&
+                      signedInUser.id !== params.user && (
+                        <MutualFriends>
+                          {
+                            signedInUser.friends.filter((fr) =>
+                              friends.includes(fr)
+                            ).length
+                          }{" "}
+                          mutual
+                        </MutualFriends>
+                      )}{" "}
                   </>
                 )}
               </FriendCount>
