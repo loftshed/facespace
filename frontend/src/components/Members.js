@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { MdPersonAdd } from "react-icons/md";
+import { MdPersonAdd, MdPerson } from "react-icons/md";
 
 import { COLORS } from "../constants";
 import { FaceContext } from "./FaceContext";
@@ -43,12 +43,23 @@ const Members = () => {
                       >
                         <MutualFriends>
                           {numMutualFriends > 0 && (
-                            <>{numMutualFriends} Mutual friends</>
+                            <>
+                              {numMutualFriends} Mutual friend
+                              {numMutualFriends > 1 ? "s" : ""}
+                            </>
                           )}
                         </MutualFriends>
                         {!friends.includes(id) && (
                           <AddButton>
                             <AddBtnIcon />
+                          </AddButton>
+                        )}
+
+                        {friends.includes(id) && (
+                          <AddButton
+                            style={{ color: `${COLORS.tertiaryAccentClr}` }}
+                          >
+                            <FriendIcon />
                           </AddButton>
                         )}
                       </div>
@@ -116,6 +127,7 @@ const AddButton = styled.button`
 `;
 
 const AddBtnIcon = styled(MdPersonAdd)``;
+const FriendIcon = styled(MdPerson)``;
 
 const Member = styled.div`
   display: flex;
