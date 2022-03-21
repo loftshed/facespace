@@ -82,7 +82,8 @@ const ProfileContainer = styled.div`
 `;
 
 const FriendCount = styled.p`
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 400;
   color: ${COLORS.tertiaryAccentClr};
 `;
 
@@ -108,12 +109,10 @@ const DetailsContainer = styled.div`
   height: 150px;
   flex-direction: column;
   margin-top: -30px;
-  /* margin: 20px 20px 0px -40px; */
-  text-align: right;
+  padding-top: 20px;
+  padding-left: 300px;
   width: 100%;
   background-color: ${COLORS.primaryAccentClr};
   border-radius: 10px;
   box-shadow: 0px 1px 5px black;
-  /* border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px; */
 `;
