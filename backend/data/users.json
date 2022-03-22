@@ -3,144 +3,192 @@
     "id": "1006",
     "name": "Russell",
     "friends": ["1007", "1008", "1009"],
-    "avatarUrl": "/images/profile-pics/000001.jpg"
+    "avatarUrl": "/images/profile-pics/000001.jpg",
+    "hometown": "Goobies, NL",
+    "education": "SCHOOL OF HARD KNOCKS"
   },
   {
     "id": "1007",
     "name": "Maisy",
     "friends": ["1006", "1008", "1009"],
-    "avatarUrl": "/images/profile-pics/000002.jpg"
+    "avatarUrl": "/images/profile-pics/000002.jpg",
+    "hometown": "Middelfart, Denmark",
+    "education": "Darren's Clown College"
   },
   {
     "id": "1008",
     "name": "Fletcher",
     "friends": ["1006", "1007", "1009"],
-    "avatarUrl": "/images/profile-pics/000003.jpg"
+    "avatarUrl": "/images/profile-pics/000003.jpg",
+    "hometown": "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch, Wales",
+    "education": "don't need none"
   },
   {
     "id": "1009",
     "name": "Charley",
     "friends": ["1006", "1008", "1007"],
-    "avatarUrl": "/images/profile-pics/000004.jpg"
+    "avatarUrl": "/images/profile-pics/000004.jpg",
+    "hometown": "Stoner, BC",
+    "education": "St. Stinkleberry's School for Girls"
   },
   {
     "id": "1013",
     "name": "Lana",
     "friends": ["1014", "1018", "1023"],
-    "avatarUrl": "/images/profile-pics/000005.jpg"
+    "avatarUrl": "/images/profile-pics/000005.jpg",
+    "hometown": "Balzac, AB",
+    "education": "McDonald's U"
   },
   {
     "id": "1014",
     "name": "Leona",
     "friends": ["1013", "1015", "1016", "1017"],
-    "avatarUrl": "/images/profile-pics/000006.jpg"
+    "avatarUrl": "/images/profile-pics/000006.jpg",
+    "hometown": "New York, NY",
+    "education": "McPhil University"
   },
   {
     "id": "1015",
     "name": "Patricia",
     "friends": ["1014", "1016", "1017"],
-    "avatarUrl": "/images/profile-pics/000007.jpg"
+    "avatarUrl": "/images/profile-pics/000007.jpg",
+    "hometown": "Portland, OR",
+    "education": "Uncanny Valley College of the Arts"
   },
   {
     "id": "1016",
     "name": "Oliver",
     "friends": ["1014", "1015", "1017"],
-    "avatarUrl": "/images/profile-pics/000008.jpg"
+    "avatarUrl": "/images/profile-pics/000008.jpg",
+    "hometown": "Township of Dillsville, NY",
+    "education": "Lord Dandlebury's College of Dance"
   },
   {
     "id": "1017",
     "name": "Harry",
     "friends": ["1014", "1015", "1016"],
-    "avatarUrl": "/images/profile-pics/000009.jpg"
+    "avatarUrl": "/images/profile-pics/000009.jpg",
+    "hometown": "Poop, Yucatan, MX",
+    "education": "i do my own reserch !"
   },
   {
     "id": "1018",
     "name": "Paolo",
     "friends": ["1013", "1019", "1020", "1021"],
-    "avatarUrl": "/images/profile-pics/000014.jpg"
+    "avatarUrl": "/images/profile-pics/000014.jpg",
+    "hometown": "Corn City, TX",
+    "education": "West Frondler Community College"
   },
   {
     "id": "1019",
     "name": "Jim",
     "friends": ["1018", "1020", "1021"],
-    "avatarUrl": "/images/profile-pics/000016.jpg"
+    "avatarUrl": "/images/profile-pics/000016.jpg",
+    "hometown": "Pyongyang, DPRK",
+    "education": "majored in electives"
   },
   {
     "id": "1020",
     "name": "Angelo",
     "friends": ["1019", "1018", "1021"],
-    "avatarUrl": "/images/profile-pics/000017.jpg"
+    "avatarUrl": "/images/profile-pics/000017.jpg",
+    "hometown": "Singapore, SG",
+    "education": "Florence Chang School of Welding"
   },
   {
     "id": "1021",
     "name": "Lise",
     "friends": ["1019", "1020", "1018"],
-    "avatarUrl": "/images/profile-pics/000018.jpg"
+    "avatarUrl": "/images/profile-pics/000018.jpg",
+    "hometown": "Lac St. Jean, QC",
+    "education": "Ecole Secondaire St-Bleebity-de-Blah"
   },
   {
     "id": "1022",
     "name": "Matilda",
     "friends": ["1023", "1024", "1025"],
-    "avatarUrl": "/images/profile-pics/000019.jpg"
+    "avatarUrl": "/images/profile-pics/000019.jpg",
+    "hometown": "not tellin :)",
+    "education": "Harvard"
   },
   {
     "id": "1023",
     "name": "Abby",
     "friends": ["1013", "1022", "1024", "1025"],
-    "avatarUrl": "/images/profile-pics/000021.jpg"
+    "avatarUrl": "/images/profile-pics/000021.jpg",
+    "hometown": "Moab, UT",
+    "education": "not too much"
   },
   {
     "id": "1024",
     "name": "Farhan",
     "friends": ["1023", "1022", "1025"],
-    "avatarUrl": "/images/profile-pics/000023.jpg"
+    "avatarUrl": "/images/profile-pics/000023.jpg",
+    "hometown": "Cape Town, ZA",
+    "education": "Gordon Pieters College of Braai"
   },
   {
     "id": "1025",
     "name": "Yasin",
     "friends": ["1023", "1024", "1022"],
-    "avatarUrl": "/images/profile-pics/000026.jpg"
+    "avatarUrl": "/images/profile-pics/000026.jpg",
+    "hometown": "Flint, MI",
+    "education": "school of LIFE"
   },
   {
     "id": "1026",
     "name": "Felix",
     "friends": ["1027", "1028", "1029"],
-    "avatarUrl": "/images/profile-pics/000027.jpg"
+    "avatarUrl": "/images/profile-pics/000027.jpg",
+    "hometown": "Ambrose-upon-Chesterfield, UK",
+    "education": "LOL who needs it 🤣"
   },
   {
     "id": "1027",
     "name": "Amanda",
     "friends": ["1026", "1028", "1029"],
-    "avatarUrl": "/images/profile-pics/000028.jpg"
+    "avatarUrl": "/images/profile-pics/000028.jpg",
+    "hometown": "Toronto, ON",
+    "education": "Dullhousie University"
   },
   {
     "id": "1028",
     "name": "Mitchell",
     "friends": ["1027", "1026", "1029"],
-    "avatarUrl": "/images/profile-pics/000029.jpg"
+    "avatarUrl": "/images/profile-pics/000029.jpg",
+    "hometown": "Tignish, PE",
+    "education": "School of fishin"
   },
   {
     "id": "1029",
     "name": "Kendra",
     "friends": ["1027", "1028", "1026"],
-    "avatarUrl": "/images/profile-pics/000093.jpg"
+    "avatarUrl": "/images/profile-pics/000093.jpg",
+    "hometown": "Montreal, QC",
+    "education": "Beaconsfield High School"
   },
   {
     "id": "1030",
     "name": "Eric",
     "friends": ["1031", "1032"],
-    "avatarUrl": "/images/profile-pics/000094.jpg"
+    "avatarUrl": "/images/profile-pics/000094.jpg",
+    "hometown": "Seoul, SK",
+    "education": "Trump University"
   },
   {
     "id": "1031",
     "name": "Dani",
     "friends": ["1030", "1032"],
-    "avatarUrl": "/images/profile-pics/000147.jpg"
+    "avatarUrl": "/images/profile-pics/000147.jpg",
+    "hometown": "Moose Jaw, SK",
+    "education": "gettin one soon"
   },
   {
     "id": "1032",
     "name": "Josie",
     "friends": ["1031", "1030"],
-    "avatarUrl": "/images/profile-pics/000153.jpg"
+    "avatarUrl": "/images/profile-pics/000153.jpg",
+    "hometown": "Bacon Cove, NL",
+    "education": "you tube community colledge"
   }
 ]

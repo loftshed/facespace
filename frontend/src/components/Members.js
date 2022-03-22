@@ -61,7 +61,7 @@ const Members = () => {
                         </MutualFriends>
                         {signedInUser.id && (
                           <>
-                            {!friends?.includes(id) && (
+                            {!friends?.includes(id) && id !== signedInUser.id && (
                               <AddButton
                                 type="button"
                                 onClick={(ev) => {
@@ -75,7 +75,7 @@ const Members = () => {
                               </AddButton>
                             )}
 
-                            {friends?.includes(id) && (
+                            {friends?.includes(id) && id !== signedInUser.id && (
                               <AddButton2
                                 disabled={true}
                                 style={{

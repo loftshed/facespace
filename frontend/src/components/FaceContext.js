@@ -37,15 +37,13 @@ export const FaceProvider = ({ children }) => {
     }
 
     try {
-      const response = await fetch("/api/friends", {
+      await fetch("/api/friends", {
         method: "PATCH",
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
         },
       });
-      const jsonifiedResponse = await response.json();
-      console.log(jsonifiedResponse);
     } catch (err) {
       console.log(err);
     }

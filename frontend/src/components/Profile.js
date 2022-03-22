@@ -14,7 +14,8 @@ const Profile = () => {
     signedInUser,
     changeFriendStatus,
   } = useContext(FaceContext);
-  const { name, friends, avatarUrl, id } = currentlyDisplayedProfile;
+  const { name, friends, avatarUrl, id, hometown, education } =
+    currentlyDisplayedProfile;
   const params = useParams();
 
   useLayoutEffect(() => {
@@ -45,7 +46,25 @@ const Profile = () => {
           <ProfilePic src={avatarUrl} />
           <DetailsContainer>
             <Name>
-              <span>{name}</span>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                {name}
+                {signedInUser.name &&
+                  signedInUser.id !== currentlyDisplayedProfile.id && (
+                    <AddButton
+                      onClick={(ev) => {
+                        ev.preventDefault();
+                        changeFriendStatus({
+                          newFriends: [id, signedInUser.id],
+                        });
+                      }}
+                    >
+                      {signedInUser.friends?.includes(id) &&
+                        signedInUser.id !== id && <>Remove Friend</>}
+                      {!signedInUser.friends?.includes(id) &&
+                        signedInUser.id !== id && <>Add Friend</>}
+                    </AddButton>
+                  )}
+              </div>
               <FriendCount>
                 {friends?.length} friends
                 {!signedInUser.name ? (
@@ -56,35 +75,35 @@ const Profile = () => {
                       .length > 0 &&
                       signedInUser.id !== params.user && (
                         <MutualFriends>
+                          (
                           {
                             signedInUser.friends.filter((fr) =>
                               friends.includes(fr)
                             ).length
                           }{" "}
-                          mutual
+                          mutual)
                         </MutualFriends>
                       )}{" "}
                   </>
                 )}
               </FriendCount>
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: "2px" }}
+              >
+                <DataRow>
+                  <span style={{ color: `${COLORS.secondaryAccentClr}` }}>
+                    Hometown:
+                  </span>{" "}
+                  {hometown}
+                </DataRow>
+                <DataRow>
+                  <span style={{ color: `${COLORS.secondaryAccentClr}` }}>
+                    Education:
+                  </span>{" "}
+                  {education}
+                </DataRow>
+              </div>
             </Name>
-            {signedInUser.name && (
-              <>
-                <AddButton
-                  onClick={(ev) => {
-                    ev.preventDefault();
-                    changeFriendStatus({
-                      newFriends: [id, signedInUser.id],
-                    });
-                  }}
-                >
-                  {signedInUser.friends?.includes(id) &&
-                    signedInUser.id !== id && <>Remove Friend</>}
-                  {!signedInUser.friends?.includes(id) &&
-                    signedInUser.id !== id && <>Add Friend</>}
-                </AddButton>
-              </>
-            )}
           </DetailsContainer>
         </div>
         <Friends />
@@ -107,7 +126,7 @@ const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  width: 675px;
+  width: 750px;
   gap: 25px;
 `;
 
@@ -120,9 +139,9 @@ const FriendCount = styled.p`
 const MutualFriends = styled.span`
   color: white;
   font-weight: 300;
-  font-size: 14px;
-  background-color: ${COLORS.blackestClr};
-  padding: 1px 5px;
+  /* font-size: 14px; */
+  /* background-color: ${COLORS.blackestClr}; */
+  /* padding: 1px 5px; */
   margin-left: 5px;
   border-radius: 3px;
 `;
@@ -160,10 +179,12 @@ const DetailsContainer = styled.div`
 `;
 
 const AddButton = styled.button`
+  /* position: absolute; */
   font-size: 14px;
   font-weight: 400;
   color: white;
   height: fit-content;
+  width: fit-content;
   padding: 6px 10px 4px 10px;
   border-radius: 20px;
   border-style: none;
@@ -189,9 +210,17 @@ const AddButton = styled.button`
 //   background-color: ${COLORS.blackestClr};
 // `;
 
+const DataRow = styled.p`
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+`;
+
 const Name = styled.h2`
+  width: 425px;
+  position: absolute;
   display: flex;
   flex-direction: column;
   text-shadow: 2px 1px 0px ${COLORS.backgroundClr};
-  gap: 2px;
+  gap: 6px;
 `;
