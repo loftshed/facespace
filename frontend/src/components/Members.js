@@ -27,7 +27,8 @@ const Members = () => {
                 <StyledLink
                   key={id}
                   to={`/user/${id}`}
-                  style={{ order: isFriend ? "-1" : "0" }}
+                  // style={{ order: isFriend ? "-1" : "0" }}
+                  // ^^ kind of makes things confusing while adding friends
                 >
                   <Member
                     style={{
@@ -74,17 +75,17 @@ const Members = () => {
                               </AddButton>
                             )}
 
-                            {/* {friends?.includes(id) && (
-                              <AddButton
+                            {friends?.includes(id) && (
+                              <AddButton2
                                 disabled={true}
                                 style={{
                                   color: `${COLORS.tertiaryAccentClr}`,
-                                  cursor: "",
+                                  cursor: "pointer",
                                 }}
                               >
                                 <FriendIcon />
-                              </AddButton>
-                            )} */}
+                              </AddButton2>
+                            )}
                           </>
                         )}
                       </div>
@@ -163,6 +164,16 @@ const AddButton = styled.button`
   &:hover {
     background-color: ${COLORS.tertiaryAccentClr};
   }
+`;
+
+// i know there's some better way to do this by extending the previous button or probably using this one as the base
+const AddButton2 = styled.button`
+  align-self: flex-end;
+  color: ${COLORS.secondaryAccentClr};
+  background-color: ${COLORS.backgroundClr};
+  border-style: none;
+  padding: 3px 5px;
+  border-radius: 5px;
 `;
 
 const AddBtnIcon = styled(MdPersonAdd)``;
