@@ -3,13 +3,16 @@ export const FaceContext = createContext(null);
 
 export const FaceProvider = ({ children }) => {
   const [members, setMembers] = useState({});
-  const [currentProfile, setCurrentProfile] = useState([]);
+  const [currentlyDisplayedProfile, setCurrentlyDisplayedProfile] = useState(
+    []
+  );
   const [signedInUser, setSignedInUser] = useState({});
+  const [signedInUserId, setSignedInUserId] = useState("");
 
   const loadMembers = useCallback(() => {
+    console.log("loadmembers called");
     (async () => {
       try {
-        console.log("loadMembers() running");
         const response = await fetch("/api/users/", {});
         const jsonifiedResponse = await response.json();
         setMembers(jsonifiedResponse.data);
@@ -20,7 +23,20 @@ export const FaceProvider = ({ children }) => {
   }, []);
 
   const changeFriendStatus = async (data) => {
-    console.log(data);
+    const usersAreFriends = signedInUser.friends.includes(data.newFriends[0]);
+    const remainingFriends = signedInUser.friends.filter((el) => {
+      return el !== data.newFriends[0];
+    });
+
+    if (!usersAreFriends) {
+      setSignedInUser({
+        ...signedInUser,
+        friends: [...signedInUser.friends, data.newFriends[0]],
+      });
+    } else {
+      setSignedInUser({ ...signedInUser, friends: remainingFriends });
+    }
+
     try {
       const response = await fetch("/api/friends", {
         method: "PATCH",
@@ -41,10 +57,12 @@ export const FaceProvider = ({ children }) => {
       value={{
         members,
         setMembers,
-        currentProfile,
-        setCurrentProfile,
+        currentlyDisplayedProfile,
+        setCurrentlyDisplayedProfile,
         signedInUser,
         setSignedInUser,
+        signedInUserId,
+        setSignedInUserId,
         loadMembers,
         changeFriendStatus,
       }}

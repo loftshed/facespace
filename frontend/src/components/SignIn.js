@@ -7,15 +7,14 @@ import { FaceContext } from "./FaceContext";
 import Button from "./Button";
 
 const SignIn = () => {
-  const { setSignedInUser } = useContext(FaceContext);
+  const { setSignedInUserId } = useContext(FaceContext);
   const history = useHistory();
 
   const handleSignIn = (response) => {
     if (response.data !== "error") {
-      setSignedInUser(response.data);
-      const jsonifiedUser = JSON.stringify(response.data);
-      localStorage.setItem("user", jsonifiedUser);
-      // TODO maybe display login successful or loading spinner before history.push..
+      const userId = JSON.stringify(response.data.id);
+      setSignedInUserId(userId);
+      localStorage.setItem("userId", userId);
       history.push(`/user/${response.data.id}`);
     }
   };
