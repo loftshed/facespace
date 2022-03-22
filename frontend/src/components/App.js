@@ -13,9 +13,8 @@ const App = () => {
   const {
     loadMembers,
     members,
-    setSignedInUser,
-    signedInUser,
     setSignedInUserId,
+    setSignedInUser,
     signedInUserId,
   } = useContext(FaceContext);
 
@@ -34,7 +33,7 @@ const App = () => {
         setSignedInUser(currentUser);
       }
     }
-  }, [setSignedInUserId, members]);
+  }, [setSignedInUser, setSignedInUserId, members]);
 
   return (
     <BrowserRouter>
@@ -46,7 +45,7 @@ const App = () => {
             <Home />
           </Route>
           <Route path="/signin">
-            {signedInUser.id ? <Redirect to="/" /> : <SignIn />}
+            {signedInUserId ? <Redirect to="/" /> : <SignIn />}
           </Route>
           <Route path="/user/:user">
             <Profile />

@@ -7,10 +7,8 @@ import { COLORS } from "../constants";
 import { FaceContext } from "./FaceContext";
 
 const Members = () => {
-  const { members, signedInUser, changeFriendStatus, loadMembers } =
-    useContext(FaceContext);
+  const { members, signedInUser, changeFriendStatus } = useContext(FaceContext);
   const { friends } = signedInUser;
-  // useEffect(() => {}, []);
 
   return (
     <Wrapper>

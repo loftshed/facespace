@@ -7,13 +7,13 @@ import Friends from "./Friends";
 
 const Profile = () => {
   const {
-    currentProfile,
-    setCurrentProfile,
+    currentlyDisplayedProfile,
+    setCurrentlyDisplayedProfile,
     loadMembers,
     signedInUser,
     changeFriendStatus,
   } = useContext(FaceContext);
-  const { name, friends, avatarUrl, id } = currentProfile;
+  const { name, friends, avatarUrl, id } = currentlyDisplayedProfile;
   const params = useParams();
 
   console.log(friends);
@@ -27,15 +27,15 @@ const Profile = () => {
       try {
         const response = await fetch(`/api/users/${params.user}`, {});
         const jsonifiedResponse = await response.json();
-        setCurrentProfile(jsonifiedResponse.data);
+        setCurrentlyDisplayedProfile(jsonifiedResponse.data);
       } catch (err) {
         console.log(err);
         // TODO make error page
       }
     })();
-  }, [setCurrentProfile, params.user]);
+  }, [setCurrentlyDisplayedProfile, params.user]);
 
-  if (!currentProfile.name) {
+  if (!currentlyDisplayedProfile.name) {
     return null;
   }
 
@@ -72,10 +72,17 @@ const Profile = () => {
             </Name>
             {signedInUser.name && (
               <>
-                {signedInUser.friends?.includes(id) && (
-                  <IsFriend disabled={true} style={{ cursor: "" }}>
-                    Friend
-                  </IsFriend>
+                {signedInUser.friends?.includes(id) && signedInUser.id !== id && (
+                  <AddButton
+                    onClick={(ev) => {
+                      ev.preventDefault();
+                      changeFriendStatus({
+                        newFriends: [id, signedInUser.id],
+                      });
+                    }}
+                  >
+                    Remove Friend
+                  </AddButton>
                 )}
 
                 {!signedInUser.friends?.includes(id) && signedInUser.id !== id && (

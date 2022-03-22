@@ -3,14 +3,15 @@ export const FaceContext = createContext(null);
 
 export const FaceProvider = ({ children }) => {
   const [members, setMembers] = useState({});
-  const [currentProfile, setCurrentProfile] = useState([]);
+  const [currentlyDisplayedProfile, setCurrentlyDisplayedProfile] = useState(
+    []
+  );
   const [signedInUser, setSignedInUser] = useState({});
   const [signedInUserId, setSignedInUserId] = useState("");
 
   const loadMembers = useCallback(() => {
     (async () => {
       try {
-        console.log("loadMembers() running");
         const response = await fetch("/api/users/", {});
         const jsonifiedResponse = await response.json();
         setMembers(jsonifiedResponse.data);
@@ -42,8 +43,8 @@ export const FaceProvider = ({ children }) => {
       value={{
         members,
         setMembers,
-        currentProfile,
-        setCurrentProfile,
+        currentlyDisplayedProfile,
+        setCurrentlyDisplayedProfile,
         signedInUser,
         setSignedInUser,
         signedInUserId,

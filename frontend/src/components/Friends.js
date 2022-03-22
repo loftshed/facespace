@@ -6,8 +6,9 @@ import { FaceContext } from "./FaceContext";
 import { COLORS } from "../constants";
 
 const Friends = () => {
-  const { members, currentProfile, signedInUser } = useContext(FaceContext);
-  const { name, friends } = currentProfile;
+  const { members, currentlyDisplayedProfile, signedInUser } =
+    useContext(FaceContext);
+  const { name, friends } = currentlyDisplayedProfile;
 
   return (
     <Wrapper>
