@@ -10,6 +10,7 @@ export const FaceProvider = ({ children }) => {
   const [signedInUserId, setSignedInUserId] = useState("");
 
   const loadMembers = useCallback(() => {
+    console.log("loadmembers called");
     (async () => {
       try {
         const response = await fetch("/api/users/", {});
@@ -22,7 +23,20 @@ export const FaceProvider = ({ children }) => {
   }, []);
 
   const changeFriendStatus = async (data) => {
-    console.log(data);
+    const usersAreFriends = signedInUser.friends.includes(data.newFriends[0]);
+    const remainingFriends = signedInUser.friends.filter((el) => {
+      return el !== data.newFriends[0];
+    });
+
+    if (!usersAreFriends) {
+      setSignedInUser({
+        ...signedInUser,
+        friends: [...signedInUser.friends, data.newFriends[0]],
+      });
+    } else {
+      setSignedInUser({ ...signedInUser, friends: remainingFriends });
+    }
+
     try {
       const response = await fetch("/api/friends", {
         method: "PATCH",

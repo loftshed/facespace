@@ -10,13 +10,12 @@ const Profile = () => {
     currentlyDisplayedProfile,
     setCurrentlyDisplayedProfile,
     loadMembers,
+    members,
     signedInUser,
     changeFriendStatus,
   } = useContext(FaceContext);
   const { name, friends, avatarUrl, id } = currentlyDisplayedProfile;
   const params = useParams();
-
-  console.log(friends);
 
   useLayoutEffect(() => {
     loadMembers();
@@ -30,10 +29,9 @@ const Profile = () => {
         setCurrentlyDisplayedProfile(jsonifiedResponse.data);
       } catch (err) {
         console.log(err);
-        // TODO make error page
       }
     })();
-  }, [setCurrentlyDisplayedProfile, params.user]);
+  }, [setCurrentlyDisplayedProfile, params.user, members, signedInUser]);
 
   if (!currentlyDisplayedProfile.name) {
     return null;
@@ -79,6 +77,7 @@ const Profile = () => {
                       changeFriendStatus({
                         newFriends: [id, signedInUser.id],
                       });
+                      // loadMembers();
                     }}
                   >
                     Remove Friend
@@ -92,6 +91,7 @@ const Profile = () => {
                       changeFriendStatus({
                         newFriends: [id, signedInUser.id],
                       });
+                      // loadMembers();
                     }}
                   >
                     Add Friend
