@@ -100,6 +100,7 @@ const Wrapper = styled.div`
 const Logo = styled.h1`
   font-weight: 400;
   padding: 10px;
+  margin-top: 2px;
   text-shadow: 2px 1px 0px ${COLORS.backgroundClr};
   transition: 0.05s linear all;
   &:hover {

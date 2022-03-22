@@ -75,6 +75,7 @@ const FriendsHeading = styled.h3`
 const FriendsList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 25%);
+  row-gap: 10px;
   justify-items: center;
 `;
 

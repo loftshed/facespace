@@ -7,7 +7,7 @@
 // };
 
 export const SIZES = {
-  headerHeight: "60px",
+  headerHeight: "50px",
   footerHeight: "25px",
 };
 
