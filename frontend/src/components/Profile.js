@@ -70,33 +70,19 @@ const Profile = () => {
             </Name>
             {signedInUser.name && (
               <>
-                {signedInUser.friends?.includes(id) && signedInUser.id !== id && (
-                  <AddButton
-                    onClick={(ev) => {
-                      ev.preventDefault();
-                      changeFriendStatus({
-                        newFriends: [id, signedInUser.id],
-                      });
-                      // loadMembers();
-                    }}
-                  >
-                    Remove Friend
-                  </AddButton>
-                )}
-
-                {!signedInUser.friends?.includes(id) && signedInUser.id !== id && (
-                  <AddButton
-                    onClick={(ev) => {
-                      ev.preventDefault();
-                      changeFriendStatus({
-                        newFriends: [id, signedInUser.id],
-                      });
-                      // loadMembers();
-                    }}
-                  >
-                    Add Friend
-                  </AddButton>
-                )}
+                <AddButton
+                  onClick={(ev) => {
+                    ev.preventDefault();
+                    changeFriendStatus({
+                      newFriends: [id, signedInUser.id],
+                    });
+                  }}
+                >
+                  {signedInUser.friends?.includes(id) &&
+                    signedInUser.id !== id && <>Remove Friend</>}
+                  {!signedInUser.friends?.includes(id) &&
+                    signedInUser.id !== id && <>Add Friend</>}
+                </AddButton>
               </>
             )}
           </DetailsContainer>

@@ -10,7 +10,6 @@ export const FaceProvider = ({ children }) => {
   const [signedInUserId, setSignedInUserId] = useState("");
 
   const loadMembers = useCallback(() => {
-    console.log("loadmembers called");
     (async () => {
       try {
         const response = await fetch("/api/users/", {});
