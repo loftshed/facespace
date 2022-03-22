@@ -5,6 +5,7 @@ export const FaceProvider = ({ children }) => {
   const [members, setMembers] = useState({});
   const [currentProfile, setCurrentProfile] = useState([]);
   const [signedInUser, setSignedInUser] = useState({});
+  const [signedInUserId, setSignedInUserId] = useState("");
 
   const loadMembers = useCallback(() => {
     (async () => {
@@ -45,6 +46,8 @@ export const FaceProvider = ({ children }) => {
         setCurrentProfile,
         signedInUser,
         setSignedInUser,
+        signedInUserId,
+        setSignedInUserId,
         loadMembers,
         changeFriendStatus,
       }}

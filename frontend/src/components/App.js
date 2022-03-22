@@ -10,23 +10,31 @@ import Footer from "./Footer";
 import { FaceContext } from "./FaceContext";
 
 const App = () => {
-  const { loadMembers, setSignedInUser, signedInUser } =
-    useContext(FaceContext);
-
-  useEffect(() => {
-    const persistedUser = localStorage.getItem("user");
-    const jsonifiedPersistedUser = JSON.parse(persistedUser);
-    if (jsonifiedPersistedUser) {
-      // members.find((el) => {
-      //   el.id === jsonifiedPersistedUser.id;
-      // });
-      setSignedInUser(jsonifiedPersistedUser);
-    }
-  }, [setSignedInUser]);
+  const {
+    loadMembers,
+    members,
+    setSignedInUser,
+    signedInUser,
+    setSignedInUserId,
+    signedInUserId,
+  } = useContext(FaceContext);
 
   useEffect(() => {
     loadMembers();
   }, [loadMembers]);
+
+  useEffect(() => {
+    const userId = JSON.parse(localStorage.getItem("userId"));
+    if (userId) {
+      setSignedInUserId(userId);
+      if (members.length > 0) {
+        const currentUser = members.find((el) => {
+          return el.id === userId;
+        });
+        setSignedInUser(currentUser);
+      }
+    }
+  }, [setSignedInUserId, members]);
 
   return (
     <BrowserRouter>
