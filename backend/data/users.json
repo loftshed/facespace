@@ -5,7 +5,9 @@
     "friends": ["1007", "1008", "1009"],
     "avatarUrl": "/images/profile-pics/000001.jpg",
     "hometown": "Goobies, NL",
-    "education": "SCHOOL OF HARD KNOCKS"
+    "education": "SCHOOL OF HARD KNOCKS",
+    "jobPosition": "Vice Chairman of Corndog Analysis",
+    "employer": "Denny's"
   },
   {
     "id": "1007",
@@ -13,15 +15,19 @@
     "friends": ["1006", "1008", "1009"],
     "avatarUrl": "/images/profile-pics/000002.jpg",
     "hometown": "Middelfart, Denmark",
-    "education": "Darren's Clown College"
+    "education": "Darren's Clown College",
+    "jobPosition": "Clown",
+    "employer": "a kid's birthday"
   },
   {
     "id": "1008",
     "name": "Fletcher",
     "friends": ["1006", "1007", "1009"],
     "avatarUrl": "/images/profile-pics/000003.jpg",
-    "hometown": "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch, Wales",
-    "education": "don't need none"
+    "hometown": "Diddler's Creek, NV",
+    "education": "don't need none",
+    "jobPosition": "CEO",
+    "employer": "whatever I want"
   },
   {
     "id": "1009",
@@ -29,7 +35,9 @@
     "friends": ["1006", "1008", "1007"],
     "avatarUrl": "/images/profile-pics/000004.jpg",
     "hometown": "Stoner, BC",
-    "education": "St. Stinkleberry's School for Girls"
+    "education": "St. Stinkleberry's School for Girls",
+    "jobPosition": "Tax Evasion Advisor",
+    "employer": "H&R Blech"
   },
   {
     "id": "1013",
@@ -37,7 +45,9 @@
     "friends": ["1014", "1018", "1023"],
     "avatarUrl": "/images/profile-pics/000005.jpg",
     "hometown": "Balzac, AB",
-    "education": "McDonald's U"
+    "education": "McDonald's U",
+    "jobPosition": "Slamwich Artist",
+    "employer": "Crubway"
   },
   {
     "id": "1014",
@@ -45,7 +55,9 @@
     "friends": ["1013", "1015", "1016", "1017"],
     "avatarUrl": "/images/profile-pics/000006.jpg",
     "hometown": "New York, NY",
-    "education": "McPhil University"
+    "education": "McPhil University",
+    "jobPosition": "Regional Manager",
+    "employer": "Dendy's Home Electronics"
   },
   {
     "id": "1015",
@@ -53,7 +65,9 @@
     "friends": ["1014", "1016", "1017"],
     "avatarUrl": "/images/profile-pics/000007.jpg",
     "hometown": "Portland, OR",
-    "education": "Uncanny Valley College of the Arts"
+    "education": "Uncanny Valley College of the Arts",
+    "jobPosition": "Team Lead",
+    "employer": "Chia Pet Inc."
   },
   {
     "id": "1016",
@@ -61,7 +75,9 @@
     "friends": ["1014", "1015", "1017"],
     "avatarUrl": "/images/profile-pics/000008.jpg",
     "hometown": "Township of Dillsville, NY",
-    "education": "Lord Dandlebury's College of Dance"
+    "education": "Lord Dandlebury's College of Dance",
+    "jobPosition": "Semi-Pro Wrestler",
+    "employer": "Self Employed"
   },
   {
     "id": "1017",
@@ -69,7 +85,9 @@
     "friends": ["1014", "1015", "1016"],
     "avatarUrl": "/images/profile-pics/000009.jpg",
     "hometown": "Poop, Yucatan, MX",
-    "education": "i do my own reserch !"
+    "education": "i do my own reserch !",
+    "jobPosition": "i like fire trucks and moster trucks",
+    "employer": "walter"
   },
   {
     "id": "1018",
@@ -77,7 +95,9 @@
     "friends": ["1013", "1019", "1020", "1021"],
     "avatarUrl": "/images/profile-pics/000014.jpg",
     "hometown": "Corn City, TX",
-    "education": "West Frondler Community College"
+    "education": "West Frondler Community College",
+    "jobPosition": "VP of US Operations",
+    "employer": "2000 Flushes"
   },
   {
     "id": "1019",
@@ -85,7 +105,9 @@
     "friends": ["1018", "1020", "1021"],
     "avatarUrl": "/images/profile-pics/000016.jpg",
     "hometown": "Pyongyang, DPRK",
-    "education": "majored in electives"
+    "education": "majored in electives",
+    "jobPosition": "Kyle's Kayak",
+    "employer": ""
   },
   {
     "id": "1020",
@@ -93,7 +115,9 @@
     "friends": ["1019", "1018", "1021"],
     "avatarUrl": "/images/profile-pics/000017.jpg",
     "hometown": "Singapore, SG",
-    "education": "Florence Chang School of Welding"
+    "education": "Florence Chang School of Welding",
+    "jobPosition": "Parkour Specialist",
+    "employer": "self-employed"
   },
   {
     "id": "1021",
@@ -101,7 +125,9 @@
     "friends": ["1019", "1020", "1018"],
     "avatarUrl": "/images/profile-pics/000018.jpg",
     "hometown": "Lac St. Jean, QC",
-    "education": "Ecole Secondaire St-Bleebity-de-Blah"
+    "education": "Ecole Secondaire St-Bleebity-de-Blah",
+    "jobPosition": "Senior Donut Analyst",
+    "employer": "Tim Horton's"
   },
   {
     "id": "1022",
@@ -109,7 +135,9 @@
     "friends": ["1023", "1024", "1025"],
     "avatarUrl": "/images/profile-pics/000019.jpg",
     "hometown": "not tellin :)",
-    "education": "Harvard"
+    "education": "Harvard",
+    "jobPosition": "unemployed",
+    "employer": "chillin"
   },
   {
     "id": "1023",
@@ -117,7 +145,9 @@
     "friends": ["1013", "1022", "1024", "1025"],
     "avatarUrl": "/images/profile-pics/000021.jpg",
     "hometown": "Moab, UT",
-    "education": "not too much"
+    "education": "not too much",
+    "jobPosition": "CEO",
+    "employer": "MyChillow"
   },
   {
     "id": "1024",
@@ -125,7 +155,9 @@
     "friends": ["1023", "1022", "1025"],
     "avatarUrl": "/images/profile-pics/000023.jpg",
     "hometown": "Cape Town, ZA",
-    "education": "Gordon Pieters College of Braai"
+    "education": "Gordon Pieters College of Braai",
+    "jobPosition": "Pan Salesman",
+    "employer": "OnlyPans"
   },
   {
     "id": "1025",
@@ -133,7 +165,9 @@
     "friends": ["1023", "1024", "1022"],
     "avatarUrl": "/images/profile-pics/000026.jpg",
     "hometown": "Flint, MI",
-    "education": "school of LIFE"
+    "education": "school of LIFE",
+    "jobPosition": "Swedish Guy Locator",
+    "employer": "BjornHub"
   },
   {
     "id": "1026",
@@ -141,7 +175,9 @@
     "friends": ["1027", "1028", "1029"],
     "avatarUrl": "/images/profile-pics/000027.jpg",
     "hometown": "Ambrose-upon-Chesterfield, UK",
-    "education": "LOL who needs it 🤣"
+    "education": "LOL who needs it 🤣",
+    "jobPosition": "stay-at-home cat dad",
+    "employer": "GST check"
   },
   {
     "id": "1027",
@@ -149,7 +185,9 @@
     "friends": ["1026", "1028", "1029"],
     "avatarUrl": "/images/profile-pics/000028.jpg",
     "hometown": "Toronto, ON",
-    "education": "Dullhousie University"
+    "education": "Dullhousie University",
+    "jobPosition": "Insect Lawyer",
+    "employer": "I work for the bees"
   },
   {
     "id": "1028",
@@ -157,7 +195,9 @@
     "friends": ["1027", "1026", "1029"],
     "avatarUrl": "/images/profile-pics/000029.jpg",
     "hometown": "Tignish, PE",
-    "education": "School of fishin"
+    "education": "School of fishin",
+    "jobPosition": "trawlin fish",
+    "employer": "ocean"
   },
   {
     "id": "1029",
@@ -165,7 +205,9 @@
     "friends": ["1027", "1028", "1026"],
     "avatarUrl": "/images/profile-pics/000093.jpg",
     "hometown": "Montreal, QC",
-    "education": "Beaconsfield High School"
+    "education": "Beaconsfield High School",
+    "jobPosition": "Historical Interpreter",
+    "employer": "Orange Julep"
   },
   {
     "id": "1030",
@@ -173,7 +215,9 @@
     "friends": ["1031", "1032"],
     "avatarUrl": "/images/profile-pics/000094.jpg",
     "hometown": "Seoul, SK",
-    "education": "Trump University"
+    "education": "West Fupa Community College",
+    "jobPosition": "bill gates impersonator",
+    "employer": "i do parties"
   },
   {
     "id": "1031",
@@ -181,7 +225,9 @@
     "friends": ["1030", "1032"],
     "avatarUrl": "/images/profile-pics/000147.jpg",
     "hometown": "Moose Jaw, SK",
-    "education": "gettin one soon"
+    "education": "gettin one soon",
+    "jobPosition": "surfin",
+    "employer": "the beach"
   },
   {
     "id": "1032",
@@ -189,6 +235,8 @@
     "friends": ["1031", "1030"],
     "avatarUrl": "/images/profile-pics/000153.jpg",
     "hometown": "Bacon Cove, NL",
-    "education": "you tube community colledge"
+    "education": "you tube community colledge",
+    "jobPosition": "Reiki Practitioner",
+    "employer": "Not Just Salt Rock Lamps"
   }
 ]

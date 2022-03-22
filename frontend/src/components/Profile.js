@@ -4,6 +4,11 @@ import styled from "styled-components";
 import { COLORS, SIZES } from "../constants";
 import { FaceContext } from "./FaceContext";
 import Friends from "./Friends";
+import {
+  MdOutlineSchool,
+  MdOutlineLocationCity,
+  MdWorkOutline,
+} from "react-icons/md";
 
 const Profile = () => {
   const {
@@ -14,8 +19,16 @@ const Profile = () => {
     signedInUser,
     changeFriendStatus,
   } = useContext(FaceContext);
-  const { name, friends, avatarUrl, id, hometown, education } =
-    currentlyDisplayedProfile;
+  const {
+    name,
+    friends,
+    avatarUrl,
+    id,
+    hometown,
+    education,
+    jobPosition,
+    employer,
+  } = currentlyDisplayedProfile;
   const params = useParams();
 
   useLayoutEffect(() => {
@@ -88,19 +101,41 @@ const Profile = () => {
                 )}
               </FriendCount>
               <div
-                style={{ display: "flex", flexDirection: "column", gap: "2px" }}
+                style={{ display: "flex", flexDirection: "column", gap: "4px" }}
               >
                 <DataRow>
                   <span style={{ color: `${COLORS.secondaryAccentClr}` }}>
-                    Hometown:
-                  </span>{" "}
+                    {MdOutlineLocationCity()}
+                  </span>
                   {hometown}
                 </DataRow>
                 <DataRow>
-                  <span style={{ color: `${COLORS.secondaryAccentClr}` }}>
-                    Education:
-                  </span>{" "}
+                  <span
+                    style={{
+                      color: `${COLORS.secondaryAccentClr}`,
+                    }}
+                  >
+                    {MdOutlineSchool()}
+                  </span>
                   {education}
+                </DataRow>
+                <DataRow>
+                  <span
+                    style={{
+                      color: `${COLORS.secondaryAccentClr}`,
+                    }}
+                  >
+                    {MdWorkOutline()}
+                  </span>
+                  {jobPosition}
+                  <span
+                    style={{
+                      color: `${COLORS.secondaryAccentClr}`,
+                    }}
+                  >
+                    at
+                  </span>
+                  {employer}
                 </DataRow>
               </div>
             </Name>
@@ -214,6 +249,8 @@ const DataRow = styled.p`
   color: white;
   font-size: 16px;
   font-weight: 300;
+  display: flex;
+  gap: 5px;
 `;
 
 const Name = styled.h2`
@@ -222,5 +259,5 @@ const Name = styled.h2`
   display: flex;
   flex-direction: column;
   text-shadow: 2px 1px 0px ${COLORS.backgroundClr};
-  gap: 6px;
+  gap: 8px;
 `;
