@@ -192,16 +192,16 @@ const AddButton = styled.button`
   }
 `;
 
-const IsFriend = styled.span`
-  font-size: 14px;
-  font-weight: 400;
-  color: white;
-  height: fit-content;
-  padding: 6px 10px 4px 10px;
-  border-radius: 20px;
-  border-style: none;
-  background-color: ${COLORS.blackestClr};
-`;
+// const IsFriend = styled.span`
+//   font-size: 14px;
+//   font-weight: 400;
+//   color: white;
+//   height: fit-content;
+//   padding: 6px 10px 4px 10px;
+//   border-radius: 20px;
+//   border-style: none;
+//   background-color: ${COLORS.blackestClr};
+// `;
 
 const Name = styled.h2`
   display: flex;
