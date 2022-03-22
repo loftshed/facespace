@@ -119,12 +119,13 @@ const DropDown = styled.div`
   font-size: 18px;
   font-weight: 400;
   width: fit-content;
-  top: 45px;
+  top: 42px;
   right: 2px;
   background-color: ${COLORS.primaryAccentClr};
   /* box-shadow: 0px 3px 5px 0px black; */
   padding: 10px 10px 8px 10px;
-  border-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   transition: 0.1s ease-in all;
   z-index: 1;
 `;
