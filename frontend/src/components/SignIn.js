@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useContext } from "react";
+import { useContext, useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { COLORS, SIZES } from "../constants";
@@ -9,6 +9,11 @@ import Button from "./Button";
 const SignIn = () => {
   const { setSignedInUserId } = useContext(FaceContext);
   const history = useHistory();
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const handleSignIn = (response) => {
     if (response.data !== "error") {
@@ -49,6 +54,7 @@ const SignIn = () => {
               }}
             >
               <Input
+                ref={inputRef}
                 id="usernameInput"
                 type="text"
                 placeholder={"Your first name"}
@@ -85,7 +91,7 @@ const Overlay = styled.div`
 `;
 
 const BlurBg = styled.div`
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(50px);
   padding: 10px;
   border-radius: 12px;
 `;
